@@ -2,7 +2,7 @@
   "extends": [
     "airbnb",
     "prettier",
-    "plugin:node/recommended",
+    // "plugin:node/recommended",
     "plugin:react/recommended"
   ],
   "plugins": ["prettier"],
@@ -15,10 +15,16 @@
     "func-names": "off",
     "node/no-unpublished-require": "off",
     "no-restricted-syntax": "off",
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   },
   "env": {
     "browser": true,
     "node": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
   }
 }
