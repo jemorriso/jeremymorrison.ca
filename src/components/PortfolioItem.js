@@ -10,15 +10,38 @@ const Wrapper = styled.div`
 
 const IconsWrapper = styled.div``;
 
-function PortfolioItem(props) {
-  const { title } = props;
-  return (
-    <Wrapper>
-      <header>{title}</header>
-      {/* <p>{props.summary}</p> */}
-    </Wrapper>
-  );
+class PortfolioItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isHovered: false };
+  }
+
+  toggleHover = () => {
+    // see React documentation for setState
+    this.setState((oldState) => ({ isHovered: !oldState.isHovered }));
+  };
+
+  render() {
+    const { title } = this.props;
+    const { isHovered } = this.state;
+    return (
+      <Wrapper onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}>
+        {isHovered ? <header>Hovered!</header> : <header>{title}</header>}
+        {/* <p>{props.summary}</p> */}
+      </Wrapper>
+    );
+  }
 }
+
+// function PortfolioItem(props) {
+//   const { title } = props;
+//   return (
+//     <Wrapper>
+//       <header>{title}</header>
+//       {/* <p>{props.summary}</p> */}
+//     </Wrapper>
+//   );
+// }
 
 PortfolioItem.propTypes = {
   title: PropTypes.string.isRequired,
