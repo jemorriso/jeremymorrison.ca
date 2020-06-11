@@ -2,6 +2,7 @@ import React from 'react';
 // styled here is the local alias for the default export, while createGlobalStyle is another export from styled-components
 import styled, { createGlobalStyle } from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
+import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
 
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
@@ -10,6 +11,7 @@ import About from './components/About';
 import Portfolio from './components/Portfolio';
 import Resume from './components/Resume';
 import Contact from './components/Contact';
+import Landing from './components/Landing';
 
 import './css/reset.css';
 
@@ -57,17 +59,32 @@ class App extends React.Component {
 
   render() {
     return (
-      <Wrapper>
-        <GlobalStyle />
-        <Sidebar />
-        <ContentWrapper>
-          <About />
-          <Portfolio />
-          <Resume />
-          <Contact />
-          <Footer />
-        </ContentWrapper>
-      </Wrapper>
+      <Router>
+        <Wrapper>
+          <GlobalStyle />
+          <Sidebar />
+          <ContentWrapper>
+            <Switch>
+              <Route path="/about">
+                <About />
+              </Route>
+              <Route path="/portfolio">
+                <Portfolio />
+              </Route>
+              <Route path="/resume">
+                <Resume />
+              </Route>
+              <Route path="/contact">
+                <Contact />
+              </Route>
+              <Route path="/">
+                <Landing />
+              </Route>
+            </Switch>
+            <Footer />
+          </ContentWrapper>
+        </Wrapper>
+      </Router>
     );
   }
 }

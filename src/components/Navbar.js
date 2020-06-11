@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link, animateScroll } from 'react-scroll';
 import styled from 'styled-components';
+import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
 
 const Nav = styled.nav`
   /* background-color: lightblue;
@@ -24,10 +24,18 @@ function Navbar(props) {
     <Nav>
       <Ul className="nav-items">
         {/* use Link in each li */}
-        <Li>Portfolio</Li>
-        <Li>About</Li>
-        <Li>Resume</Li>
-        <Li>Contact</Li>
+        <Li>
+          <Link to="/portfolio">Portfolio</Link>
+        </Li>
+        <Li>
+          <Link to="/about">About</Link>
+        </Li>
+        <Li>
+          <Link to="/resume">Resume</Link>
+        </Li>
+        <Li>
+          <Link to="/contact">Contact</Link>
+        </Li>
       </Ul>
     </Nav>
   );
