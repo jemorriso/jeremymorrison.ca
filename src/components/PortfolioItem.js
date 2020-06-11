@@ -1,6 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Link,
+  Route,
+  useRouteMatch,
+} from 'react-router-dom';
 
 const Wrapper = styled.div`
   background-color: orange;
@@ -22,36 +29,35 @@ class PortfolioItem extends React.Component {
   };
 
   render() {
-    const { title } = this.props;
+    const { title, partial } = this.props;
     const { isHovered } = this.state;
     return (
       <Wrapper onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}>
-        {isHovered ? <header>Hovered!</header> : <header>{title}</header>}
+        {isHovered ? (
+          <Link to={`/portfolio/${partial}`}>
+            <button type="button">Learn More</button>
+          </Link>
+        ) : (
+          // <header>Hovered!</header>
+          <header>{title}</header>
+        )}
         {/* <p>{props.summary}</p> */}
       </Wrapper>
     );
   }
 }
 
-// function PortfolioItem(props) {
-//   const { title } = props;
-//   return (
-//     <Wrapper>
-//       <header>{title}</header>
-//       {/* <p>{props.summary}</p> */}
-//     </Wrapper>
-//   );
-// }
-
 PortfolioItem.propTypes = {
   title: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
   url: PropTypes.string,
-  source: PropTypes.string.isRequired,
+  source: PropTypes.string,
+  partial: PropTypes.string.isRequired,
 };
 
 PortfolioItem.defaultProps = {
   url: '',
+  source: '',
 };
 
 export default PortfolioItem;

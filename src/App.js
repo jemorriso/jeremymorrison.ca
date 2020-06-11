@@ -12,6 +12,7 @@ import Portfolio from './components/Portfolio';
 import Resume from './components/Resume';
 import Contact from './components/Contact';
 import Landing from './components/Landing';
+import PortfolioItemDetail from './components/PortfolioItemDetail';
 
 import './css/reset.css';
 
@@ -67,6 +68,10 @@ class App extends React.Component {
             <Switch>
               <Route path="/about">
                 <About />
+              </Route>
+              {/* TODO: clean up routing order */}
+              <Route path="/portfolio/:portfolioDetail">
+                <PortfolioItemDetail />
               </Route>
               <Route path="/portfolio">
                 <Portfolio />
