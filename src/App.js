@@ -3,6 +3,7 @@ import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
@@ -13,6 +14,7 @@ import Resume from './components/Resume';
 import Contact from './components/Contact';
 import Landing from './components/Landing';
 import PortfolioItemDetail from './components/PortfolioItemDetail';
+import RouteContainer from './components/RouteContainer';
 
 import './css/reset.css';
 
@@ -65,27 +67,7 @@ class App extends React.Component {
           <GlobalStyle />
           <Sidebar />
           <ContentWrapper>
-            <Switch>
-              <Route path="/about">
-                <About />
-              </Route>
-              {/* TODO: clean up routing order */}
-              <Route path="/portfolio/:portfolioDetail">
-                <PortfolioItemDetail />
-              </Route>
-              <Route path="/portfolio">
-                <Portfolio />
-              </Route>
-              <Route path="/resume">
-                <Resume />
-              </Route>
-              <Route path="/contact">
-                <Contact />
-              </Route>
-              <Route path="/">
-                <Landing />
-              </Route>
-            </Switch>
+            <RouteContainer />
             <Footer />
           </ContentWrapper>
         </Wrapper>
