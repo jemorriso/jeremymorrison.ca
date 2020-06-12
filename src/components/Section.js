@@ -14,7 +14,7 @@ const Header = styled.header`
   background-color: #303030;
 `;
 
-const Content = styled.p`
+const Content = styled.div`
   background-color: #202020;
 `;
 

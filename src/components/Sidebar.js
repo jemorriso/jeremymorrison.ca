@@ -11,6 +11,12 @@ const Wrapper = styled.div`
   position: fixed;
   left: 0;
   width: 200px;
+
+  @media (max-width: 850px) {
+    top: 0;
+    height: 200px;
+    width: 100%;
+  }
 `;
 
 function Sidebar(props) {

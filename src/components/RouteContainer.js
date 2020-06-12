@@ -9,6 +9,7 @@ import Resume from './Resume';
 import Contact from './Contact';
 import Landing from './Landing';
 import PortfolioItemDetail from './PortfolioItemDetail';
+import Footer from './Footer';
 
 const Wrapper = styled.div`
   .fade-enter {
@@ -35,6 +36,7 @@ const Wrapper = styled.div`
     width: 100%;
     top: 0;
     left: 0;
+    background-color: #dddddd;
   }
 `;
 
@@ -71,6 +73,7 @@ function RouteContainer(props) {
                 <Landing />
               </Route>
             </Switch>
+            <Footer />
           </section>
         </CSSTransition>
       </TransitionGroup>
@@ -79,7 +82,8 @@ function RouteContainer(props) {
 }
 
 RouteContainer.propTypes = {
-  location: PropTypes.string.isRequired,
+  // Easiest way to avoid ESLint forbid-prop-types
+  location: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default withRouter(RouteContainer);

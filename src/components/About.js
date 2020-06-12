@@ -2,9 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import SectionHeader from './SectionHeader';
 
+const Section = styled.section``;
+
 function About(props) {
   return (
-    <section>
+    <Section>
       <SectionHeader title="About" />
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque
@@ -52,7 +54,7 @@ function About(props) {
         neque repudiandae delectus quisquam dicta non labore, officiis mollitia
         excepturi? Officia, at!
       </p>
-    </section>
+    </Section>
   );
 }
 

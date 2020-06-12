@@ -1,13 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Link,
-  Route,
-  useRouteMatch,
-} from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import SectionHeader from './SectionHeader';
 import PortfolioItem from './PortfolioItem';
 
@@ -59,7 +53,6 @@ class Portfolio extends React.Component {
   }
 
   render() {
-    // const match = useRouteMatch();
     return (
       <section>
         <SectionHeader title="Portfolio" />

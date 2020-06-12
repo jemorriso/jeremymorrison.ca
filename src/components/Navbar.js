@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Nav = styled.nav`
   /* background-color: lightblue;
@@ -23,7 +23,6 @@ function Navbar(props) {
   return (
     <Nav>
       <Ul className="nav-items">
-        {/* use Link in each li */}
         <Li>
           <Link to="/portfolio">Portfolio</Link>
         </Li>

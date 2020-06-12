@@ -1,21 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Link,
-  Route,
-  useRouteMatch,
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
   background-color: orange;
   text-align: center;
   min-height: 200px;
 `;
-
-const IconsWrapper = styled.div``;
 
 class PortfolioItem extends React.Component {
   constructor(props) {
