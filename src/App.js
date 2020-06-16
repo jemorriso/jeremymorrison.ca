@@ -7,6 +7,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import Sidebar from './components/Sidebar';
 import RouteContainer from './components/RouteContainer';
+import Topbar from './components/Topbar';
 
 import './css/reset.css';
 
@@ -37,25 +38,53 @@ const Wrapper = styled.div`
 const ContentWrapper = styled.div`
   margin-left: 200px;
   background-color: #d3d3d3;
+  height: 100%;
 
   @media (max-width: 850px) {
     margin-left: 0;
-    margin-top: 200px;
   }
 `;
 
-function App() {
-  return (
-    <Router>
-      <Wrapper>
-        <GlobalStyle />
-        <Sidebar />
-        <ContentWrapper>
-          <RouteContainer />
-        </ContentWrapper>
-      </Wrapper>
-    </Router>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      windowWidth: 0,
+      windowHeight: 0,
+    };
+  }
+
+  componentDidMount() {
+    this.updateDimensions();
+    window.addEventListener('resize', this.updateDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDimensions);
+  }
+
+  updateDimensions = () => {
+    const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
+    const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
+
+    this.setState({ windowWidth, windowHeight });
+  };
+
+  render() {
+    return (
+      <Router>
+        <Wrapper>
+          <GlobalStyle />
+          <Sidebar />
+          <ContentWrapper>
+            <Topbar />
+            <RouteContainer />
+          </ContentWrapper>
+        </Wrapper>
+      </Router>
+    );
+  }
 }
 
 export default App;
