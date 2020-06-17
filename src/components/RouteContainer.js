@@ -12,6 +12,7 @@ import PortfolioItemDetail from './PortfolioItemDetail';
 import Footer from './Footer';
 
 const Wrapper = styled.div`
+  /* these classes are all being applied to the section with class name 'route-section */
   .fade-enter {
     opacity: 0.01;
   }
@@ -41,10 +42,10 @@ const Wrapper = styled.div`
 `;
 
 function RouteContainer(props) {
-  const { location } = props;
+  const { location, hideSidebar } = props;
 
   return (
-    <Wrapper>
+    <Wrapper onClick={hideSidebar}>
       <TransitionGroup className="transition-group">
         <CSSTransition
           key={location.key}
@@ -84,6 +85,7 @@ function RouteContainer(props) {
 RouteContainer.propTypes = {
   // Easiest way to avoid ESLint forbid-prop-types
   location: PropTypes.objectOf(PropTypes.string).isRequired,
+  hideSidebar: PropTypes.func.isRequired,
 };
 
 export default withRouter(RouteContainer);

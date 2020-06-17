@@ -1,9 +1,7 @@
 import React from 'react';
 // styled here is the local alias for the default export, while createGlobalStyle is another export from styled-components
 import styled, { createGlobalStyle } from 'styled-components';
-import { v4 as uuidv4 } from 'uuid';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import Sidebar from './components/Sidebar';
 import RouteContainer from './components/RouteContainer';
@@ -76,11 +74,17 @@ class App extends React.Component {
   };
 
   toggleSidebar = () => {
-    // alert('clicked');
+    const { windowWidth } = this.state;
     // if window is bigger than 850px in width, don't want the sidebar to close ever
-    console.log(this.state.windowWidth);
-    if (this.state.windowWidth < 850) {
+    if (windowWidth < 850) {
       this.setState((prevState) => ({ sidebarOpen: !prevState.sidebarOpen }));
+    }
+  };
+
+  hideSidebar = () => {
+    const { windowWidth } = this.state;
+    if (windowWidth < 850) {
+      this.setState({ sidebarOpen: false });
     }
   };
 
@@ -100,7 +104,7 @@ class App extends React.Component {
               sidebarOpen={sidebarOpen}
               toggleSidebar={this.toggleSidebar}
             />
-            <RouteContainer />
+            <RouteContainer hideSidebar={this.hideSidebar} />
           </ContentWrapper>
         </Wrapper>
       </Router>

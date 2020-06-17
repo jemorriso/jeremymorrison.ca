@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Nav = styled.nav`
   /* background-color: lightblue;
@@ -20,24 +21,37 @@ const Li = styled.li`
 `;
 
 function Navbar(props) {
+  const { toggleSidebar } = props;
+
   return (
     <Nav>
       <Ul className="nav-items">
         <Li>
-          <Link to="/portfolio">Portfolio</Link>
+          <Link to="/portfolio" onClick={toggleSidebar}>
+            Portfolio
+          </Link>
         </Li>
         <Li>
-          <Link to="/about">About</Link>
+          <Link to="/about" onClick={toggleSidebar}>
+            About
+          </Link>
         </Li>
         <Li>
-          <Link to="/resume">Resume</Link>
+          <Link to="/resume" onClick={toggleSidebar}>
+            Resume
+          </Link>
         </Li>
         <Li>
-          <Link to="/contact">Contact</Link>
+          <Link to="/contact" onClick={toggleSidebar}>
+            Contact
+          </Link>
         </Li>
       </Ul>
     </Nav>
   );
 }
 
+Navbar.propTypes = {
+  toggleSidebar: PropTypes.func.isRequired,
+};
 export default Navbar;

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Transition, CSSTransition } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 
 import Navbar from './Navbar';
 import Brand from './Brand';
@@ -10,24 +10,6 @@ import Socials from './Socials';
 const duration = 1000;
 
 const Wrapper = styled.div`
-  /* .animation-enter {
-    width: 0px;
-  }
-  .animation-enter.animation-enter-active {
-    width: 200px;
-    transition: width ${duration}ms;
-  }
-  .animation-exit {
-    width: 200px;
-  }
-  .animation-exit.animation-exit-active {
-    width: 0px;
-    transition: width ${duration}ms;
-  }
-  .animation-exit-done {
-    width: 0px;
-  } */
-
   .animation-enter {
     display: block;
   }
@@ -71,7 +53,7 @@ function Sidebar(props) {
         {/* transitions are applied to this div */}
         <ContentWrapper windowWidth={windowWidth}>
           {windowWidth >= 850 ? <Brand /> : null}
-          <Navbar />
+          <Navbar toggleSidebar={toggleSidebar} />
           <Socials />
         </ContentWrapper>
       </CSSTransition>
