@@ -1,32 +1,88 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { Transition, CSSTransition } from 'react-transition-group';
 
 import Navbar from './Navbar';
 import Brand from './Brand';
 import Socials from './Socials';
 
+const duration = 1000;
+
 const Wrapper = styled.div`
+  /* .animation-enter {
+    width: 0px;
+  }
+  .animation-enter.animation-enter-active {
+    width: 200px;
+    transition: width ${duration}ms;
+  }
+  .animation-exit {
+    width: 200px;
+  }
+  .animation-exit.animation-exit-active {
+    width: 0px;
+    transition: width ${duration}ms;
+  }
+  .animation-exit-done {
+    width: 0px;
+  } */
+
+  .animation-enter {
+    display: block;
+  }
+  .animation-enter.animation-enter-active {
+    transform: translate(200px);
+    transition: transform ${duration}ms;
+  }
+  .animation-enter-done {
+    display: block;
+    left: 0px;
+  }
+  .animation-exit {
+    display: block;
+    left: 0px;
+  }
+  .animation-exit.animation-exit-active {
+    transform: translate(-200px);
+    transition: transform ${duration}ms;
+  }
+  /* Not needed because default state is display none */
+  /* .animation-exit-done {
+    display: none;
+  } */
+`;
+
+const ContentWrapper = styled.div`
   background-color: lightblue;
   height: 100%;
   position: fixed;
-  left: 0;
   width: 200px;
-
-  @media (max-width: 850px) {
-    top: 0;
-    height: 200px;
-    width: 100%;
-  }
+  z-index: 1;
+  left: ${(props) => (props.windowWidth < 850 ? '-200px' : 0)};
+  display: ${(props) => (props.windowWidth < 850 ? 'none' : 'block')};
 `;
 
 function Sidebar(props) {
+  const { windowWidth, sidebarOpen, toggleSidebar } = props;
   return (
     <Wrapper>
-      <Brand />
-      <Navbar />
-      <Socials />
+      <CSSTransition in={sidebarOpen} timeout={duration} classNames="animation">
+        {/* transitions are applied to this div */}
+        <ContentWrapper windowWidth={windowWidth}>
+          {windowWidth >= 850 ? <Brand /> : null}
+          <Navbar />
+          <Socials />
+        </ContentWrapper>
+      </CSSTransition>
     </Wrapper>
   );
 }
+
+Sidebar.propTypes = {
+  windowWidth: PropTypes.number.isRequired,
+  sidebarOpen: PropTypes.bool.isRequired,
+  toggleSidebar: PropTypes.func.isRequired,
+};
 
 export default Sidebar;
