@@ -40,7 +40,7 @@ const ContentWrapper = styled.div`
   height: 100%;
   position: fixed;
   width: 200px;
-  z-index: 1;
+  z-index: 2;
   left: ${(props) => (props.windowWidth < 850 ? '-200px' : 0)};
   display: ${(props) => (props.windowWidth < 850 ? 'none' : 'block')};
 `;
