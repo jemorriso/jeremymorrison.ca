@@ -52,14 +52,18 @@ class App extends React.Component {
     this.state = {
       windowWidth: 0,
       windowHeight: 0,
+      // not sure about initial page load
+      sidebarOpen: false,
     };
   }
 
+  // invoked immediately after component is mounted
   componentDidMount() {
     this.updateDimensions();
     window.addEventListener('resize', this.updateDimensions);
   }
 
+  // invoked immediately before component unmounted and destroyed
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateDimensions);
   }
@@ -71,14 +75,31 @@ class App extends React.Component {
     this.setState({ windowWidth, windowHeight });
   };
 
+  toggleSidebar = () => {
+    // alert('clicked');
+    // if window is bigger than 850px in width, don't want the sidebar to close ever
+    console.log(this.state.windowWidth);
+    if (this.state.windowWidth < 850) {
+      this.setState((prevState) => ({ sidebarOpen: !prevState.sidebarOpen }));
+    }
+  };
+
   render() {
+    const { windowWidth, sidebarOpen } = this.state;
     return (
       <Router>
         <Wrapper>
           <GlobalStyle />
-          <Sidebar />
+          <Sidebar
+            windowWidth={windowWidth}
+            sidebarOpen={sidebarOpen}
+            toggleSidebar={this.toggleSidebar}
+          />
           <ContentWrapper>
-            <Topbar />
+            <Topbar
+              sidebarOpen={sidebarOpen}
+              toggleSidebar={this.toggleSidebar}
+            />
             <RouteContainer />
           </ContentWrapper>
         </Wrapper>
