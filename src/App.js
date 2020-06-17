@@ -2,12 +2,22 @@ import React from 'react';
 // styled here is the local alias for the default export, while createGlobalStyle is another export from styled-components
 import styled, { createGlobalStyle } from 'styled-components';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faInstagram,
+  faLinkedin,
+  faGithub,
+  faSpotify,
+} from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 import Sidebar from './components/Sidebar';
 import RouteContainer from './components/RouteContainer';
 import Topbar from './components/Topbar';
 
 import './css/reset.css';
+
+library.add(faInstagram, faLinkedin, faGithub, faSpotify, faEnvelope);
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -33,9 +43,20 @@ const Wrapper = styled.div`
   height: 1px;
 `;
 
+const OverlayBackground = styled.div`
+  display: ${(props) => (props.sidebarOpen ? 'block' : 'none')};
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`;
+
 const ContentWrapper = styled.div`
   margin-left: 200px;
-  background-color: #d3d3d3;
   height: 100%;
 
   @media (max-width: 850px) {
@@ -81,13 +102,6 @@ class App extends React.Component {
     }
   };
 
-  hideSidebar = () => {
-    const { windowWidth } = this.state;
-    if (windowWidth < 850) {
-      this.setState({ sidebarOpen: false });
-    }
-  };
-
   render() {
     const { windowWidth, sidebarOpen } = this.state;
     return (
@@ -99,12 +113,19 @@ class App extends React.Component {
             sidebarOpen={sidebarOpen}
             toggleSidebar={this.toggleSidebar}
           />
+          <OverlayBackground
+            sidebarOpen={sidebarOpen}
+            onClick={this.toggleSidebar}
+          />
           <ContentWrapper>
             <Topbar
               sidebarOpen={sidebarOpen}
               toggleSidebar={this.toggleSidebar}
             />
-            <RouteContainer hideSidebar={this.hideSidebar} />
+            <RouteContainer
+              hideSidebar={this.hideSidebar}
+              sidebarOpen={sidebarOpen}
+            />
           </ContentWrapper>
         </Wrapper>
       </Router>

@@ -42,10 +42,10 @@ const Wrapper = styled.div`
 `;
 
 function RouteContainer(props) {
-  const { location, hideSidebar } = props;
+  const { location } = props;
 
   return (
-    <Wrapper onClick={hideSidebar}>
+    <Wrapper>
       <TransitionGroup className="transition-group">
         <CSSTransition
           key={location.key}
@@ -85,7 +85,6 @@ function RouteContainer(props) {
 RouteContainer.propTypes = {
   // Easiest way to avoid ESLint forbid-prop-types
   location: PropTypes.objectOf(PropTypes.string).isRequired,
-  hideSidebar: PropTypes.func.isRequired,
 };
 
 export default withRouter(RouteContainer);

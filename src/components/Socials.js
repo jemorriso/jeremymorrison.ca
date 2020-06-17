@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Wrapper = styled.div`
   background-color: #dc8bfc;
@@ -10,8 +11,8 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Icon = styled.div`
-  background-color: black;
+const Icon = styled.a`
+  /* background-color: black; */
   margin: 0.5em;
   border-radius: 50%;
   min-height: 1em;
@@ -21,11 +22,37 @@ const Icon = styled.div`
 function Socials(props) {
   return (
     <Wrapper>
-      <Icon></Icon>
-      <Icon></Icon>
-      <Icon></Icon>
-      <Icon></Icon>
-      <Icon></Icon>
+      <Icon href="">
+        <FontAwesomeIcon icon="envelope" />
+      </Icon>
+      <Icon
+        href="https://www.linkedin.com/in/jwill-morrison/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FontAwesomeIcon icon={['fab', 'linkedin']} />
+      </Icon>
+      <Icon
+        href="https://github.com/JeMorriso"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FontAwesomeIcon icon={['fab', 'github']} />
+      </Icon>
+      <Icon
+        href="https://www.instagram.com/_jeremymorrison/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FontAwesomeIcon icon={['fab', 'instagram']} />
+      </Icon>
+      <Icon
+        href="https://open.spotify.com/user/11y8roaohv2cggx4q9u09fiiu?si=4d0c5dj1RnajQmzcwEY9Zw"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FontAwesomeIcon icon={['fab', 'spotify']} />
+      </Icon>
     </Wrapper>
   );
 }
