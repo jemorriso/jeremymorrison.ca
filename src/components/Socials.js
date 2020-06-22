@@ -13,6 +13,7 @@ const Wrapper = styled.div`
 
 const Icon = styled.a`
   /* background-color: black; */
+  color: black;
   margin: 0.5em;
   border-radius: 50%;
   min-height: 1em;
@@ -22,7 +23,7 @@ const Icon = styled.a`
 function Socials(props) {
   return (
     <Wrapper>
-      <Icon href="">
+      <Icon href="mailto:contact@jeremymorrison.ca">
         <FontAwesomeIcon icon="envelope" />
       </Icon>
       <Icon
