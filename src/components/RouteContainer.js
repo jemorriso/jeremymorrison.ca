@@ -42,7 +42,7 @@ const Wrapper = styled.div`
 `;
 
 function RouteContainer(props) {
-  const { location } = props;
+  const { location, socials } = props;
 
   return (
     <Wrapper>
@@ -68,7 +68,7 @@ function RouteContainer(props) {
                 <Resume />
               </Route>
               <Route path="/contact">
-                <Contact />
+                <Contact socials={socials} />
               </Route>
               <Route path="/">
                 <Landing />
@@ -85,6 +85,7 @@ function RouteContainer(props) {
 RouteContainer.propTypes = {
   // Easiest way to avoid ESLint forbid-prop-types
   location: PropTypes.objectOf(PropTypes.string).isRequired,
+  socials: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default withRouter(RouteContainer);
