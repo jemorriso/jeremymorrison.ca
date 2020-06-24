@@ -83,6 +83,23 @@ class App extends React.Component {
       windowHeight: 0,
       // not sure about initial page load
       sidebarOpen: false,
+      socials: [
+        { href: 'mailto:contact@jeremymorrison.ca', icon: 'envelope' },
+        {
+          href: 'https://www.linkedin.com/in/jwill-morrison/',
+          icon: ['fab', 'linkedin'],
+        },
+        { href: 'https://github.com/JeMorriso', icon: ['fab', 'github'] },
+        {
+          href: 'https://www.instagram.com/_jeremymorrison/',
+          icon: ['fab', 'instagram'],
+        },
+        {
+          href:
+            'https://open.spotify.com/user/11y8roaohv2cggx4q9u09fiiu?si=4d0c5dj1RnajQmzcwEY9Zw',
+          icon: ['fab', 'spotify'],
+        },
+      ],
     };
   }
 
@@ -113,7 +130,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { windowWidth, sidebarOpen } = this.state;
+    const { windowWidth, sidebarOpen, socials } = this.state;
     return (
       <Router>
         <Wrapper>
@@ -122,6 +139,7 @@ class App extends React.Component {
             windowWidth={windowWidth}
             sidebarOpen={sidebarOpen}
             toggleSidebar={this.toggleSidebar}
+            socials={socials}
           />
           <OverlayBackground
             sidebarOpen={sidebarOpen}
@@ -135,6 +153,7 @@ class App extends React.Component {
             <RouteContainer
               hideSidebar={this.hideSidebar}
               sidebarOpen={sidebarOpen}
+              socials={socials}
             />
           </ContentWrapper>
         </Wrapper>
