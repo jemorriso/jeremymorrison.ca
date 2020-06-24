@@ -45,20 +45,50 @@ const ContentWrapper = styled.div`
   display: ${(props) => (props.windowWidth < 850 ? 'none' : 'block')};
 `;
 
-function Sidebar(props) {
-  const { windowWidth, sidebarOpen, toggleSidebar } = props;
-  return (
-    <Wrapper>
-      <CSSTransition in={sidebarOpen} timeout={duration} classNames="animation">
-        {/* transitions are applied to this div */}
-        <ContentWrapper windowWidth={windowWidth}>
-          {windowWidth >= 850 ? <Brand /> : null}
-          <Navbar toggleSidebar={toggleSidebar} />
-          <Socials />
-        </ContentWrapper>
-      </CSSTransition>
-    </Wrapper>
-  );
+class Sidebar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      socials: [
+        { href: 'mailto:contact@jeremymorrison.ca', icon: 'envelope' },
+        {
+          href: 'https://www.linkedin.com/in/jwill-morrison/',
+          icon: ['fab', 'linkedin'],
+        },
+        { href: 'https://github.com/JeMorriso', icon: ['fab', 'github'] },
+        {
+          href: 'https://www.instagram.com/_jeremymorrison/',
+          icon: ['fab', 'instagram'],
+        },
+        {
+          href:
+            'https://open.spotify.com/user/11y8roaohv2cggx4q9u09fiiu?si=4d0c5dj1RnajQmzcwEY9Zw',
+          icon: ['fab', 'spotify'],
+        },
+      ],
+    };
+  }
+
+  render() {
+    const { windowWidth, sidebarOpen, toggleSidebar } = this.props;
+    const { socials } = this.state;
+    return (
+      <Wrapper>
+        <CSSTransition
+          in={sidebarOpen}
+          timeout={duration}
+          classNames="animation"
+        >
+          {/* transitions are applied to this div */}
+          <ContentWrapper windowWidth={windowWidth}>
+            {windowWidth >= 850 ? <Brand /> : null}
+            <Navbar toggleSidebar={toggleSidebar} />
+            <Socials socials={socials} />
+          </ContentWrapper>
+        </CSSTransition>
+      </Wrapper>
+    );
+  }
 }
 
 Sidebar.propTypes = {
