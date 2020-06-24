@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { v4 as uuidv4 } from 'uuid';
 
 const Wrapper = styled.div`
   background-color: #dc8bfc;
@@ -21,41 +23,25 @@ const Icon = styled.a`
 `;
 
 function Socials(props) {
+  const { socials } = props;
   return (
     <Wrapper>
-      <Icon href="mailto:contact@jeremymorrison.ca">
-        <FontAwesomeIcon icon="envelope" />
-      </Icon>
-      <Icon
-        href="https://www.linkedin.com/in/jwill-morrison/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FontAwesomeIcon icon={['fab', 'linkedin']} />
-      </Icon>
-      <Icon
-        href="https://github.com/JeMorriso"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FontAwesomeIcon icon={['fab', 'github']} />
-      </Icon>
-      <Icon
-        href="https://www.instagram.com/_jeremymorrison/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FontAwesomeIcon icon={['fab', 'instagram']} />
-      </Icon>
-      <Icon
-        href="https://open.spotify.com/user/11y8roaohv2cggx4q9u09fiiu?si=4d0c5dj1RnajQmzcwEY9Zw"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FontAwesomeIcon icon={['fab', 'spotify']} />
-      </Icon>
+      {socials.map((el) => (
+        <Icon
+          href={el.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          key={uuidv4()}
+        >
+          <FontAwesomeIcon icon={el.icon} />
+        </Icon>
+      ))}
     </Wrapper>
   );
 }
+
+Socials.propTypes = {
+  socials: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default Socials;
