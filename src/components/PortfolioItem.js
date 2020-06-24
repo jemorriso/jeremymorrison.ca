@@ -8,15 +8,8 @@ const Wrapper = styled.div`
   /* background-color: orange; */
   color: ${(props) => (props.lightBackground ? 'black' : 'white')};
   text-align: center;
-  min-height: 200px;
-  height: 300px;
-  width: 300px;
   background-image: ${(props) => props.backgroundImage};
   background-size: cover;
-
-  /* $ button {
-    color: ;
-  } */
 `;
 
 class PortfolioItem extends React.Component {

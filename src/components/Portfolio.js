@@ -7,11 +7,28 @@ import PortfolioItem from './PortfolioItem';
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 50px;
-  justify-items: center;
-  padding: 100px;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+
+  & > div {
+    display: grid;
+  }
+
+  & > div::before {
+    content: '';
+    /* force height to be at least as tall as it is wide */
+    padding-bottom: 100%;
+    display: block;
+  }
+
+  & > div::before,
+  & > div > * {
+    /* overlap the pseudo-element and the content */
+    grid-area: 1 / 1 / 2 / 2;
+  }
+
+  @media (max-width: 850px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
 `;
 
 class Portfolio extends React.Component {
