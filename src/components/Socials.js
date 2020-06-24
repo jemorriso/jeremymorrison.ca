@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { v4 as uuidv4 } from 'uuid';
+import Icon from './Icon';
 
 const Wrapper = styled.div`
   background-color: #dc8bfc;
@@ -13,14 +14,14 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Icon = styled.a`
-  /* background-color: black; */
-  color: black;
-  margin: 0.5em;
-  border-radius: 50%;
-  min-height: 1em;
-  min-width: 1em;
-`;
+// const Icon = styled.a`
+//   /* background-color: black; */
+//   color: black;
+//   margin: 0.5em;
+//   border-radius: 50%;
+//   min-height: 1em;
+//   min-width: 1em;
+// `;
 
 function Socials(props) {
   const { socials } = props;
@@ -32,9 +33,8 @@ function Socials(props) {
           target="_blank"
           rel="noopener noreferrer"
           key={uuidv4()}
-        >
-          <FontAwesomeIcon icon={el.icon} />
-        </Icon>
+          icon={el.icon}
+        />
       ))}
     </Wrapper>
   );

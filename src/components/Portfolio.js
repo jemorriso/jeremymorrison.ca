@@ -7,9 +7,10 @@ import PortfolioItem from './PortfolioItem';
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
   gap: 50px;
-  /* justify-items: center; */
+  justify-items: center;
   padding: 100px;
 `;
 
@@ -22,17 +23,20 @@ class Portfolio extends React.Component {
           title: 'Deaf Fire Art',
           summary:
             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error asperiores qui accusantium, fugiat non est incidunt nobis quis consequatur quidem labore, minima deleniti sed amet aut? Dolores quas ex odit temporibus nostrum, voluptatum beatae quidem nam ipsa veniam deleniti earum velit porro quis doloremque similique ducimus! Minima accusantium id quia.',
-          url: 'www.deaf-fire-art.ca',
+          url: 'http://www.deaf-fire-art.ca',
           source: 'https://github.com/JeMorriso/deaf-fire-art',
-          partial: 'dfa1',
+          partial: 'deaf-fire-art',
+          backgroundImage: './img/deaffireart.jpg',
         },
         {
-          title: 'Deaf Fire Art',
+          title: 'In It To Winnik',
           summary:
             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error asperiores qui accusantium, fugiat non est incidunt nobis quis consequatur quidem labore, minima deleniti sed amet aut? Dolores quas ex odit temporibus nostrum, voluptatum beatae quidem nam ipsa veniam deleniti earum velit porro quis doloremque similique ducimus! Minima accusantium id quia.',
-          url: 'www.deaf-fire-art.ca',
-          source: 'https://github.com/JeMorriso/deaf-fire-art',
-          partial: 'dfa2',
+          url: 'https://in-it-to-winnik.herokuapp.com',
+          source: 'https://github.com/JeMorriso/yahoo-hockey-data',
+          partial: 'in-it-to-winnik',
+          backgroundImage: './img/inittowinnik.png',
+          lightBackground: true,
         },
       ],
     };
@@ -47,6 +51,8 @@ class Portfolio extends React.Component {
         url={item.url}
         source={item.source}
         partial={item.partial}
+        backgroundImage={item.backgroundImage}
+        lightBackground={item.lightBackground}
         key={uuidv4()}
       />
     ));

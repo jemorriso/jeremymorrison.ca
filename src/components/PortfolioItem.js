@@ -2,17 +2,39 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import Socials from './Socials';
 
 const Wrapper = styled.div`
-  background-color: orange;
+  /* background-color: orange; */
+  color: ${(props) => (props.lightBackground ? 'black' : 'white')};
   text-align: center;
   min-height: 200px;
+  height: 300px;
+  width: 300px;
+  background-image: ${(props) => props.backgroundImage};
+  background-size: cover;
+
+  /* $ button {
+    color: ;
+  } */
 `;
 
 class PortfolioItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isHovered: false };
+    this.state = {
+      isHovered: false,
+      socials: [
+        {
+          href: props.url,
+          icon: 'external-link-alt',
+        },
+        {
+          href: props.source,
+          icon: ['fab', 'github'],
+        },
+      ],
+    };
   }
 
   toggleHover = () => {
@@ -21,19 +43,34 @@ class PortfolioItem extends React.Component {
   };
 
   render() {
-    const { title, partial } = this.props;
-    const { isHovered } = this.state;
+    const {
+      title,
+      partial,
+      backgroundImage,
+      lightBackground,
+      summary,
+    } = this.props;
+    const { isHovered, socials } = this.state;
+
+    const imgURL = `url('${backgroundImage}')`;
     return (
-      <Wrapper onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}>
+      <Wrapper
+        backgroundImage={imgURL}
+        lightBackground={lightBackground}
+        onMouseEnter={this.toggleHover}
+        onMouseLeave={this.toggleHover}
+      >
         {isHovered ? (
-          <Link to={`/portfolio/${partial}`}>
-            <button type="button">Learn More</button>
-          </Link>
+          <div>
+            <p>{summary}</p>
+            <Socials socials={socials} />
+            <Link to={`/portfolio/${partial}`}>
+              <button type="button">Learn More</button>
+            </Link>
+          </div>
         ) : (
-          // <header>Hovered!</header>
           <header>{title}</header>
         )}
-        {/* <p>{props.summary}</p> */}
       </Wrapper>
     );
   }
@@ -45,11 +82,14 @@ PortfolioItem.propTypes = {
   url: PropTypes.string,
   source: PropTypes.string,
   partial: PropTypes.string.isRequired,
+  backgroundImage: PropTypes.string.isRequired,
+  lightBackground: PropTypes.bool,
 };
 
 PortfolioItem.defaultProps = {
   url: '',
   source: '',
+  lightBackground: false,
 };
 
 export default PortfolioItem;

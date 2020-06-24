@@ -9,7 +9,10 @@ import {
   faGithub,
   faSpotify,
 } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import {
+  faEnvelope,
+  faExternalLinkAlt,
+} from '@fortawesome/free-solid-svg-icons';
 
 import Sidebar from './components/Sidebar';
 import RouteContainer from './components/RouteContainer';
@@ -17,7 +20,14 @@ import Topbar from './components/Topbar';
 
 import './css/reset.css';
 
-library.add(faInstagram, faLinkedin, faGithub, faSpotify, faEnvelope);
+library.add(
+  faInstagram,
+  faLinkedin,
+  faGithub,
+  faSpotify,
+  faEnvelope,
+  faExternalLinkAlt,
+);
 
 const GlobalStyle = createGlobalStyle`
   body {
