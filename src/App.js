@@ -1,6 +1,8 @@
+// @format
+
 import React from 'react';
 // styled here is the local alias for the default export, while createGlobalStyle is another export from styled-components
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -17,8 +19,10 @@ import {
 import Sidebar from './components/Sidebar';
 import RouteContainer from './components/RouteContainer';
 import Topbar from './components/Topbar';
+import Footer from './components/Footer';
 
 import './css/reset.css';
+import './css/globals.css';
 
 library.add(
   faInstagram,
@@ -28,25 +32,6 @@ library.add(
   faEnvelope,
   faExternalLinkAlt,
 );
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  /* See styled components 'Referring to other components' docs  */
-  /* Whenever a component is created or wrapped by the styled() factory function, it is also assigned a stable CSS class for use in targeting. */
-  /* not working correctly */
-  /* @media (max-width: 850px) {
-    .Sidebar .Wrapper {
-      top: 0;
-      height: 200px;
-      width: 100%;
-      background-color: red;
-    }
-  } */
-`;
 
 const Wrapper = styled.div`
   min-height: 100vh;
@@ -65,9 +50,11 @@ const OverlayBackground = styled.div`
   height: 100%;
 `;
 
-const ContentWrapper = styled.div`
+const Container = styled.div`
   margin-left: 200px;
-  height: 100%;
+  min-height: 100vh;
+  /* relative so that footer is absolutely positioned relative to the container instead of the whole document */
+  position: relative;
 
   @media (max-width: 850px) {
     margin-left: 0;
@@ -81,6 +68,7 @@ class App extends React.Component {
     this.state = {
       windowWidth: 0,
       windowHeight: 0,
+      contentHeight: 0,
       // not sure about initial page load
       sidebarOpen: false,
       socials: [
@@ -107,11 +95,15 @@ class App extends React.Component {
   componentDidMount() {
     this.updateDimensions();
     window.addEventListener('resize', this.updateDimensions);
+
+    // also add listener for content height change because of dynamic footer
+    window.addEventListener('resize', this.updateContentHeight);
   }
 
   // invoked immediately before component unmounted and destroyed
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateDimensions);
+    window.removeEventListener('resize', this.updateContentHeight);
   }
 
   updateDimensions = () => {
@@ -119,6 +111,15 @@ class App extends React.Component {
     const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
 
     this.setState({ windowWidth, windowHeight });
+  };
+
+  updateContentHeight = () => {
+    const contentHeight =
+      document.getElementsByClassName('route-section')[0].clientHeight +
+      document.getElementById('topbar').clientHeight;
+
+    this.setState({ contentHeight });
+    console.log(`content height: ${contentHeight}`);
   };
 
   toggleSidebar = () => {
@@ -130,22 +131,28 @@ class App extends React.Component {
   };
 
   render() {
-    const { windowWidth, sidebarOpen, socials } = this.state;
+    const {
+      windowWidth,
+      windowHeight,
+      sidebarOpen,
+      socials,
+      contentHeight,
+    } = this.state;
     return (
       <Router>
         <Wrapper>
-          <GlobalStyle />
           <Sidebar
             windowWidth={windowWidth}
             sidebarOpen={sidebarOpen}
             toggleSidebar={this.toggleSidebar}
             socials={socials}
+            updateContentHeight={this.updateContentHeight}
           />
           <OverlayBackground
             sidebarOpen={sidebarOpen}
             onClick={this.toggleSidebar}
           />
-          <ContentWrapper>
+          <Container>
             <Topbar
               sidebarOpen={sidebarOpen}
               toggleSidebar={this.toggleSidebar}
@@ -154,8 +161,11 @@ class App extends React.Component {
               hideSidebar={this.hideSidebar}
               sidebarOpen={sidebarOpen}
               socials={socials}
+              updateContentHeight={this.updateContentHeight}
+              contentHeight={contentHeight}
             />
-          </ContentWrapper>
+            <Footer contentHeight={contentHeight} windowHeight={windowHeight} />
+          </Container>
         </Wrapper>
       </Router>
     );
