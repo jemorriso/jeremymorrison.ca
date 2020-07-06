@@ -8,6 +8,8 @@ import PortfolioItem from './PortfolioItem';
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  max-width: 1100px;
+  margin: auto;
 
   & > div {
     display: grid;
