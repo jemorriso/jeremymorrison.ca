@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Wrapper = styled.a`
-  /* background-color: black; */
-  color: black;
+  color: white;
   margin: 0.5em;
   border-radius: 50%;
   min-height: 1em;

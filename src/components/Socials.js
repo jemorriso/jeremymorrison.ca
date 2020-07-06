@@ -6,22 +6,15 @@ import { v4 as uuidv4 } from 'uuid';
 import Icon from './Icon';
 
 const Wrapper = styled.div`
-  background-color: #dc8bfc;
+  background-color: #2a4765;
+  color: white;
   min-height: 1em;
   padding: 0.5em;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
-
-// const Icon = styled.a`
-//   /* background-color: black; */
-//   color: black;
-//   margin: 0.5em;
-//   border-radius: 50%;
-//   min-height: 1em;
-//   min-width: 1em;
-// `;
 
 function Socials(props) {
   const { socials } = props;

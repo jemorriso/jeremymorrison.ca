@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import SectionHeader from './SectionHeader';
 
@@ -6,7 +6,7 @@ const Section = styled.section``;
 
 function About(props) {
   return (
-    <Section>
+    <Section id="about">
       <SectionHeader title="About" />
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque

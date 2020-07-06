@@ -3,13 +3,9 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Nav = styled.nav`
-  /* background-color: lightblue;
-  height: 100%;
-  position: fixed;
-  left: 0;
-  top
-  width: 100px; */
+const Wrapper = styled.nav`
+  background-color: #2a4765;
+  color: white;
 `;
 
 const Ul = styled.ul`
@@ -24,7 +20,7 @@ function Navbar(props) {
   const { toggleSidebar } = props;
 
   return (
-    <Nav>
+    <Wrapper>
       <Ul className="nav-items">
         <Li>
           <Link to="/portfolio" onClick={toggleSidebar}>
@@ -47,7 +43,7 @@ function Navbar(props) {
           </Link>
         </Li>
       </Ul>
-    </Nav>
+    </Wrapper>
   );
 }
 

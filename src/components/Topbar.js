@@ -6,7 +6,8 @@ import PropTypes from 'prop-types';
 const Wrapper = styled.div`
   top: 0;
   width: 100%;
-  background-color: lightgoldenrodyellow;
+  background-color: white;
+  color: #66b0b7;
   display: flex;
   justify-content: center;
 
@@ -24,7 +25,7 @@ const Icon = styled.div`
 function Topbar(props) {
   const { toggleSidebar } = props;
   return (
-    <Wrapper>
+    <Wrapper id="topbar">
       <Icon onClick={toggleSidebar} />
       <Brand />
     </Wrapper>
