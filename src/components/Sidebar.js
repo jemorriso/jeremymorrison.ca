@@ -36,7 +36,8 @@ const Wrapper = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  background-color: lightblue;
+  background-color: #1e3348;
+  color: white;
   height: 100%;
   position: fixed;
   width: 200px;
@@ -46,18 +47,24 @@ const ContentWrapper = styled.div`
 `;
 
 function Sidebar(props) {
-  const { windowWidth, sidebarOpen, toggleSidebar, socials } = props;
-
+  const {
+    windowWidth,
+    sidebarOpen,
+    toggleSidebar,
+    socials,
+    updateContentHeight,
+  } = props;
   return (
     <Wrapper>
       <CSSTransition in={sidebarOpen} timeout={duration} classNames="animation">
         {/* transitions are applied to this div */}
-        <ContentWrapper windowWidth={windowWidth}>
+        <ContentWrapper windowWidth={windowWidth} onClick={updateContentHeight}>
           {windowWidth >= 850 ? <Brand /> : null}
           <Navbar toggleSidebar={toggleSidebar} />
           <Socials socials={socials} />
         </ContentWrapper>
       </CSSTransition>
+      {console.log(ContentWrapper)}
     </Wrapper>
   );
 }
@@ -67,6 +74,7 @@ Sidebar.propTypes = {
   sidebarOpen: PropTypes.bool.isRequired,
   toggleSidebar: PropTypes.func.isRequired,
   socials: PropTypes.arrayOf(PropTypes.object).isRequired,
+  updateContentHeight: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Sidebar;
