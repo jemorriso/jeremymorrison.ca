@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const Wrapper = styled.nav`
@@ -9,11 +9,21 @@ const Wrapper = styled.nav`
 `;
 
 const Ul = styled.ul`
-  padding-left: 1em;
+  /* padding-left: 1em; */
 `;
 
 const Li = styled.li`
   list-style-type: none;
+  width: 100%;
+
+  &:hover {
+    background-color: #365c81;
+  }
+`;
+
+const LinkWrapper = styled(Link)`
+  display: inline-block;
+  width: 100%;
 `;
 
 function Navbar(props) {
@@ -23,24 +33,24 @@ function Navbar(props) {
     <Wrapper>
       <Ul className="nav-items">
         <Li>
-          <Link to="/portfolio" onClick={toggleSidebar}>
+          <LinkWrapper to="/portfolio" onClick={toggleSidebar}>
             Portfolio
-          </Link>
+          </LinkWrapper>
         </Li>
         <Li>
-          <Link to="/about" onClick={toggleSidebar}>
+          <LinkWrapper to="/about" onClick={toggleSidebar}>
             About
-          </Link>
+          </LinkWrapper>
         </Li>
         <Li>
-          <Link to="/resume" onClick={toggleSidebar}>
+          <LinkWrapper to="/resume" onClick={toggleSidebar}>
             Resume
-          </Link>
+          </LinkWrapper>
         </Li>
         <Li>
-          <Link to="/contact" onClick={toggleSidebar}>
+          <LinkWrapper to="/contact" onClick={toggleSidebar}>
             Contact
-          </Link>
+          </LinkWrapper>
         </Li>
       </Ul>
     </Wrapper>
