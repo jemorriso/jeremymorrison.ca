@@ -40,7 +40,7 @@ const Wrapper = styled.div`
 `;
 
 function RouteContainer(props) {
-  const { location, socials } = props;
+  const { location, socials, updateContentHeight } = props;
 
   return (
     <Wrapper>
@@ -49,6 +49,7 @@ function RouteContainer(props) {
           key={location.key}
           classNames="fade"
           timeout={{ enter: 1000, exit: 1000 }}
+          onExiting={updateContentHeight}
         >
           <section className="route-section">
             <Switch location={location}>

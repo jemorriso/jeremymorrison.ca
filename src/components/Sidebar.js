@@ -47,18 +47,12 @@ const ContentWrapper = styled.div`
 `;
 
 function Sidebar(props) {
-  const {
-    windowWidth,
-    sidebarOpen,
-    toggleSidebar,
-    socials,
-    updateContentHeight,
-  } = props;
+  const { windowWidth, sidebarOpen, toggleSidebar, socials } = props;
   return (
     <Wrapper>
       <CSSTransition in={sidebarOpen} timeout={duration} classNames="animation">
         {/* transitions are applied to this div */}
-        <ContentWrapper windowWidth={windowWidth} onClick={updateContentHeight}>
+        <ContentWrapper windowWidth={windowWidth}>
           {windowWidth >= 850 ? <Brand /> : null}
           <Navbar toggleSidebar={toggleSidebar} />
           <Socials socials={socials} />
