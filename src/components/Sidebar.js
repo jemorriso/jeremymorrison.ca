@@ -46,6 +46,14 @@ const ContentWrapper = styled.div`
   display: ${(props) => (props.windowWidth < 850 ? 'none' : 'block')};
 `;
 
+const Headshot = styled.div`
+  width: 80%;
+  height: 160px;
+  margin: 20px auto;
+  background-image: url('./img/headshot2.png');
+  background-size: cover;
+`;
+
 function Sidebar(props) {
   const {
     windowWidth,
@@ -59,6 +67,7 @@ function Sidebar(props) {
       <CSSTransition in={sidebarOpen} timeout={duration} classNames="animation">
         {/* transitions are applied to this div */}
         <ContentWrapper windowWidth={windowWidth}>
+          <Headshot />
           {windowWidth >= 850 ? <Brand /> : null}
           <Navbar toggleSidebar={toggleSidebar} currentPath={currentPath} />
           <Socials socials={socials} />
