@@ -71,6 +71,7 @@ class App extends React.Component {
       contentHeight: 0,
       // not sure about initial page load
       sidebarOpen: false,
+      currentPath: null,
       socials: [
         { href: 'mailto:contact@jeremymorrison.ca', icon: 'envelope' },
         {
@@ -130,6 +131,11 @@ class App extends React.Component {
     }
   };
 
+  handleRouteChange = (location) => {
+    this.updateContentHeight();
+    this.setState({ currentPath: location });
+  };
+
   render() {
     const {
       windowWidth,
@@ -137,6 +143,7 @@ class App extends React.Component {
       sidebarOpen,
       socials,
       contentHeight,
+      currentPath,
     } = this.state;
     return (
       <Router>
@@ -147,6 +154,7 @@ class App extends React.Component {
             toggleSidebar={this.toggleSidebar}
             socials={socials}
             updateContentHeight={this.updateContentHeight}
+            currentPath={currentPath}
           />
           <OverlayBackground
             sidebarOpen={sidebarOpen}
@@ -163,6 +171,7 @@ class App extends React.Component {
               socials={socials}
               updateContentHeight={this.updateContentHeight}
               contentHeight={contentHeight}
+              handleRouteChange={this.handleRouteChange}
             />
             <Footer contentHeight={contentHeight} windowHeight={windowHeight} />
           </Container>

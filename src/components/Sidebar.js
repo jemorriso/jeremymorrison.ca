@@ -47,14 +47,20 @@ const ContentWrapper = styled.div`
 `;
 
 function Sidebar(props) {
-  const { windowWidth, sidebarOpen, toggleSidebar, socials } = props;
+  const {
+    windowWidth,
+    sidebarOpen,
+    toggleSidebar,
+    socials,
+    currentPath,
+  } = props;
   return (
     <Wrapper>
       <CSSTransition in={sidebarOpen} timeout={duration} classNames="animation">
         {/* transitions are applied to this div */}
         <ContentWrapper windowWidth={windowWidth}>
           {windowWidth >= 850 ? <Brand /> : null}
-          <Navbar toggleSidebar={toggleSidebar} />
+          <Navbar toggleSidebar={toggleSidebar} currentPath={currentPath} />
           <Socials socials={socials} />
         </ContentWrapper>
       </CSSTransition>
@@ -68,7 +74,7 @@ Sidebar.propTypes = {
   sidebarOpen: PropTypes.bool.isRequired,
   toggleSidebar: PropTypes.func.isRequired,
   socials: PropTypes.arrayOf(PropTypes.object).isRequired,
-  updateContentHeight: PropTypes.arrayOf(PropTypes.object).isRequired,
+  currentPath: PropTypes.string.isRequired,
 };
 
 export default Sidebar;

@@ -40,16 +40,16 @@ const Wrapper = styled.div`
 `;
 
 function RouteContainer(props) {
-  const { location, socials, updateContentHeight } = props;
-
+  const { location, socials, handleRouteChange } = props;
   return (
     <Wrapper>
       <TransitionGroup className="transition-group">
         <CSSTransition
           key={location.key}
           classNames="fade"
-          timeout={{ enter: 1000, exit: 1000 }}
-          onExiting={updateContentHeight}
+          timeout={{ enter: 1000, exit: 400 }}
+          // the component that is entering has the pathname of the new Route
+          onEntering={() => handleRouteChange(location.pathname)}
         >
           <section className="route-section">
             <Switch location={location}>
@@ -84,6 +84,7 @@ RouteContainer.propTypes = {
   // Easiest way to avoid ESLint forbid-prop-types
   location: PropTypes.objectOf(PropTypes.string).isRequired,
   socials: PropTypes.arrayOf(PropTypes.object).isRequired,
+  handleRouteChange: PropTypes.func.isRequired,
 };
 
 export default withRouter(RouteContainer);

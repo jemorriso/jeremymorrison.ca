@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const Wrapper = styled.nav`
@@ -9,12 +9,13 @@ const Wrapper = styled.nav`
 `;
 
 const Ul = styled.ul`
-  /* padding-left: 1em; */
+  /*padding-left: 1rem;*/
 `;
 
 const Li = styled.li`
   list-style-type: none;
-  width: 100%;
+  /*width: 100%;*/
+  padding-left: 1rem;
 
   &:hover {
     background-color: #365c81;
@@ -24,31 +25,50 @@ const Li = styled.li`
 const LinkWrapper = styled(Link)`
   display: inline-block;
   width: 100%;
+
+  text-decoration: ${(props) =>
+    props.to === props.currentPath ? 'underline' : 'none'};
 `;
 
 function Navbar(props) {
-  const { toggleSidebar } = props;
+  const { toggleSidebar, currentPath } = props;
 
   return (
     <Wrapper>
       <Ul className="nav-items">
         <Li>
-          <LinkWrapper to="/portfolio" onClick={toggleSidebar}>
+          <LinkWrapper
+            to="/portfolio"
+            currentPath={currentPath}
+            onClick={toggleSidebar}
+          >
             Portfolio
           </LinkWrapper>
         </Li>
         <Li>
-          <LinkWrapper to="/about" onClick={toggleSidebar}>
+          <LinkWrapper
+            to="/about"
+            currentPath={currentPath}
+            onClick={toggleSidebar}
+          >
             About
           </LinkWrapper>
         </Li>
         <Li>
-          <LinkWrapper to="/resume" onClick={toggleSidebar}>
+          <LinkWrapper
+            to="/resume"
+            currentPath={currentPath}
+            onClick={toggleSidebar}
+          >
             Resume
           </LinkWrapper>
         </Li>
         <Li>
-          <LinkWrapper to="/contact" onClick={toggleSidebar}>
+          <LinkWrapper
+            to="/contact"
+            currentPath={currentPath}
+            onClick={toggleSidebar}
+          >
             Contact
           </LinkWrapper>
         </Li>
@@ -59,5 +79,6 @@ function Navbar(props) {
 
 Navbar.propTypes = {
   toggleSidebar: PropTypes.func.isRequired,
+  currentPath: PropTypes.string.isRequired,
 };
 export default Navbar;
