@@ -16,6 +16,8 @@ const Li = styled.li`
   list-style-type: none;
   /*width: 100%;*/
   padding-left: 1rem;
+  background-color: ${(props) =>
+    props.to === props.currentPath ? '#365c81' : 'none'};
 
   &:hover {
     background-color: #365c81;
@@ -26,8 +28,8 @@ const LinkWrapper = styled(Link)`
   display: inline-block;
   width: 100%;
 
-  text-decoration: ${(props) =>
-    props.to === props.currentPath ? 'underline' : 'none'};
+  /*text-decoration: ${(props) =>
+    props.to === props.currentPath ? 'underline' : 'none'};*/
 `;
 
 function Navbar(props) {
@@ -36,7 +38,7 @@ function Navbar(props) {
   return (
     <Wrapper>
       <Ul className="nav-items">
-        <Li>
+        <Li to="/portfolio" currentPath={currentPath}>
           <LinkWrapper
             to="/portfolio"
             currentPath={currentPath}
@@ -45,7 +47,7 @@ function Navbar(props) {
             Portfolio
           </LinkWrapper>
         </Li>
-        <Li>
+        <Li to="/about" currentPath={currentPath}>
           <LinkWrapper
             to="/about"
             currentPath={currentPath}
@@ -54,7 +56,7 @@ function Navbar(props) {
             About
           </LinkWrapper>
         </Li>
-        <Li>
+        <Li to="/resume" currentPath={currentPath}>
           <LinkWrapper
             to="/resume"
             currentPath={currentPath}
@@ -63,7 +65,7 @@ function Navbar(props) {
             Resume
           </LinkWrapper>
         </Li>
-        <Li>
+        <Li to="/contact" currentPath={currentPath}>
           <LinkWrapper
             to="/contact"
             currentPath={currentPath}
