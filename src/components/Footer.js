@@ -20,7 +20,7 @@ const MarginTopWrapper = styled(Wrapper)`
 
 function Footer(props) {
   const { contentHeight, windowHeight } = props;
-  const copyMessage = '&copy; Copyright 2020 Jeremy Morrison';
+  const copyMessage = '\u00a9 Copyright 2020 Jeremy Morrison';
   if (contentHeight <= windowHeight) {
     console.log('smaller');
   } else {
