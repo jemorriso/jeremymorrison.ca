@@ -1,20 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 const Wrapper = styled.h1`
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 3rem;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-size: 4rem;
+  padding-left: 1.6rem;
+  margin: 1.6rem auto;
+  /*letter-spacing: 0.1em;*/
+  text-transform: uppercase;
   /* font-style: italic; */
 `;
 
 function Brand(props) {
-  return (
-    <Wrapper>
-      <Link to="/">Jeremy Morrison</Link>
-    </Wrapper>
-  );
+  return <Wrapper>Jeremy Morrison</Wrapper>;
 }
 
 export default Brand;

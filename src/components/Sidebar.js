@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 
 import Navbar from './Navbar';
@@ -49,7 +50,7 @@ const ContentWrapper = styled.div`
 const Headshot = styled.div`
   width: 80%;
   height: 160px;
-  margin: 20px auto;
+  margin: 20px 20px 0;
   background-image: url('./img/headshot2.png');
   background-size: cover;
 `;
@@ -67,8 +68,10 @@ function Sidebar(props) {
       <CSSTransition in={sidebarOpen} timeout={duration} classNames="animation">
         {/* transitions are applied to this div */}
         <ContentWrapper windowWidth={windowWidth}>
-          <Headshot />
-          {windowWidth >= 850 ? <Brand /> : null}
+          <Link to="/">
+            <Headshot />
+            {windowWidth >= 850 ? <Brand /> : null}
+          </Link>
           <Navbar toggleSidebar={toggleSidebar} currentPath={currentPath} />
           <Socials socials={socials} />
         </ContentWrapper>
