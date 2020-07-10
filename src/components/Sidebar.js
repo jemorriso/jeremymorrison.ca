@@ -47,6 +47,10 @@ const ContentWrapper = styled.div`
   display: ${(props) => (props.windowWidth < 850 ? 'none' : 'block')};
 `;
 
+const NavWrapper = styled.div`
+  background-color: #2a4765;
+`;
+
 const Headshot = styled.div`
   width: 80%;
   height: 160px;
@@ -72,8 +76,10 @@ function Sidebar(props) {
             <Headshot />
             {windowWidth >= 850 ? <Brand /> : null}
           </Link>
-          <Navbar toggleSidebar={toggleSidebar} currentPath={currentPath} />
-          <Socials socials={socials} />
+          <NavWrapper>
+            <Navbar toggleSidebar={toggleSidebar} currentPath={currentPath} />
+            <Socials socials={socials} />
+          </NavWrapper>
         </ContentWrapper>
       </CSSTransition>
       {console.log(ContentWrapper)}
