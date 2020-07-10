@@ -1,25 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { v4 as uuidv4 } from 'uuid';
 import Icon from './Icon';
 
 const Wrapper = styled.div`
-  background-color: #2a4765;
-  color: white;
   min-height: 1em;
-  padding: 0.5em;
+  padding-bottom: 1.6rem;
   display: flex;
-  flex-direction: column;
+  /*flex-direction: column;*/
   justify-content: center;
   align-items: center;
 `;
 
 function Socials(props) {
-  const { socials } = props;
+  // in order for any styled component to extend Socials, must pass className through to the rendered component
+  // that the style is meant to be applied to (see docs)
+  const { socials, className } = props;
   return (
-    <Wrapper>
+    // the rendered component that extended styles are adding style to
+    <Wrapper className={className}>
       {socials.map((el) => (
         <Icon
           href={el.href}
