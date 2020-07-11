@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-const Wrapper = styled.div`
+const Wrapper = styled.h1`
   font-family: var(--font-display-secondary);
   font-weight: 400;
   font-size: 4rem;
@@ -13,7 +14,16 @@ const Wrapper = styled.div`
 `;
 
 function Brand(props) {
-  return <Wrapper>Jeremy Morrison</Wrapper>;
+  const { className } = props;
+  return <Wrapper className={className}>Jeremy Morrison</Wrapper>;
 }
+
+Brand.propTypes = {
+  className: PropTypes.string,
+};
+
+Brand.defaultProps = {
+  className: '',
+};
 
 export default Brand;

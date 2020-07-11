@@ -34,6 +34,11 @@ function Socials(props) {
 
 Socials.propTypes = {
   socials: PropTypes.arrayOf(PropTypes.object).isRequired,
+  className: PropTypes.string,
+};
+
+Socials.defaultProps = {
+  className: '',
 };
 
 export default Socials;
