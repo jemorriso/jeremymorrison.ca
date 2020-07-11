@@ -57,7 +57,7 @@ const NavWrapper = styled.div`
 const Headshot = styled.div`
   width: 80%;
   height: 160px;
-  margin: 20px 20px 0;
+  margin: 20px;
   background-image: url('./img/headshot2.png');
   background-size: cover;
 `;
