@@ -39,38 +39,22 @@ function Navbar(props) {
     <Wrapper>
       <Ul className="nav-items">
         <Li to="/portfolio" currentPath={currentPath}>
-          <LinkWrapper
-            to="/portfolio"
-            currentPath={currentPath}
-            onClick={toggleSidebar}
-          >
+          <LinkWrapper to="/portfolio" onClick={toggleSidebar}>
             Portfolio
           </LinkWrapper>
         </Li>
         <Li to="/about" currentPath={currentPath}>
-          <LinkWrapper
-            to="/about"
-            currentPath={currentPath}
-            onClick={toggleSidebar}
-          >
+          <LinkWrapper to="/about" onClick={toggleSidebar}>
             About
           </LinkWrapper>
         </Li>
         <Li to="/resume" currentPath={currentPath}>
-          <LinkWrapper
-            to="/resume"
-            currentPath={currentPath}
-            onClick={toggleSidebar}
-          >
+          <LinkWrapper to="/resume" onClick={toggleSidebar}>
             Resume
           </LinkWrapper>
         </Li>
         <Li to="/contact" currentPath={currentPath}>
-          <LinkWrapper
-            to="/contact"
-            currentPath={currentPath}
-            onClick={toggleSidebar}
-          >
+          <LinkWrapper to="/contact" onClick={toggleSidebar}>
             Contact
           </LinkWrapper>
         </Li>
