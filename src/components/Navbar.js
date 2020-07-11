@@ -4,23 +4,23 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const Wrapper = styled.nav`
-  background-color: #2a4765;
-  color: white;
+  padding: 1.6rem 0;
 `;
 
 const Ul = styled.ul`
   /*padding-left: 1rem;*/
+  line-height: 1.5;
 `;
 
 const Li = styled.li`
   list-style-type: none;
   /*width: 100%;*/
-  padding-left: 1rem;
+  padding-left: 1.6rem;
   background-color: ${(props) =>
-    props.to === props.currentPath ? '#365c81' : 'none'};
+    props.to === props.currentPath ? 'var(--color-primary-light)' : 'none'};
 
   &:hover {
-    background-color: #365c81;
+    background-color: var(--color-primary-light);
   }
 `;
 

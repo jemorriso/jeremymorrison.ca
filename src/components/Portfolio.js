@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 import { Switch, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 import SectionHeader from './SectionHeader';
 import PortfolioItem from './PortfolioItem';
 
@@ -28,7 +30,7 @@ const Grid = styled.div`
     grid-area: 1 / 1 / 2 / 2;
   }
 
-  @media (max-width: 850px) {
+  @media (max-width: ${(props) => props.sidebarBreakpoint}px) {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 `;
@@ -75,11 +77,11 @@ class Portfolio extends React.Component {
   }
 
   render() {
+    const { sidebarBreakpoint } = this.props;
     return (
       <section>
         <SectionHeader title="Portfolio" />
-        <Grid>{this.renderItems()}</Grid>
-
+        <Grid sidebarBreakpoint={sidebarBreakpoint}>{this.renderItems()}</Grid>
         <Switch>
           <Route path="/portfolio/:portfolioDetail">
             <h1>Hello world</h1>
@@ -89,5 +91,9 @@ class Portfolio extends React.Component {
     );
   }
 }
+
+Portfolio.propTypes = {
+  sidebarBreakpoint: PropTypes.number.isRequired,
+};
 
 export default Portfolio;

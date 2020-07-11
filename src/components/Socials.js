@@ -5,7 +5,6 @@ import { v4 as uuidv4 } from 'uuid';
 import Icon from './Icon';
 
 const Wrapper = styled.div`
-  min-height: 1em;
   padding-bottom: 1.6rem;
   display: flex;
   /*flex-direction: column;*/

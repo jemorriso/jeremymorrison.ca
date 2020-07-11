@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import Socials from './Socials';
 
 const Wrapper = styled.div`
-  /* background-color: orange; */
   color: ${(props) => (props.lightBackground ? 'black' : 'white')};
   text-align: center;
   background-image: ${(props) => props.backgroundImage};

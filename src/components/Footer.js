@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const Wrapper = styled.footer`
   /* since element is positioned absolutely, need to set width 100% of parent element instead of relying on implicit width */
   width: 100%;
-  background-color: #353135;
+  background-color: var(--color-tertiary);
   color: white;
   text-align: center;
   position: absolute;
@@ -20,12 +20,8 @@ const MarginTopWrapper = styled(Wrapper)`
 
 function Footer(props) {
   const { contentHeight, windowHeight } = props;
+  // use unicode copyright symbol - if use html entity, need to dangerously set inner HTML (React method)
   const copyMessage = '\u00a9 Copyright 2020 Jeremy Morrison';
-  if (contentHeight <= windowHeight) {
-    console.log('smaller');
-  } else {
-    console.log('bigger');
-  }
   return contentHeight <= windowHeight ? (
     <Wrapper>{copyMessage}</Wrapper>
   ) : (

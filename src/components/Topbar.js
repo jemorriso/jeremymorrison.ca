@@ -7,11 +7,11 @@ const Wrapper = styled.div`
   top: 0;
   width: 100%;
   background-color: white;
-  color: #66b0b7;
+  color: var(--color-secondary);
   display: flex;
   justify-content: center;
 
-  @media (min-width: 850px) {
+  @media (min-width: ${(props) => props.sidebarBreakpoint}px) {
     display: none;
   }
 `;
@@ -23,9 +23,9 @@ const Icon = styled.div`
 `;
 
 function Topbar(props) {
-  const { toggleSidebar } = props;
+  const { toggleSidebar, sidebarBreakpoint } = props;
   return (
-    <Wrapper id="topbar">
+    <Wrapper id="topbar" sidebarBreakpoint={sidebarBreakpoint}>
       <Icon onClick={toggleSidebar} />
       <Brand />
     </Wrapper>
@@ -34,5 +34,6 @@ function Topbar(props) {
 
 Topbar.propTypes = {
   toggleSidebar: PropTypes.func.isRequired,
+  sidebarBreakpoint: PropTypes.number.isRequired,
 };
 export default Topbar;

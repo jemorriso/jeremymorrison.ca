@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.h1`
-  font-family: 'Oswald', sans-serif;
+  font-family: var(--font-display-secondary);
   font-weight: 400;
   font-size: 4rem;
   padding-left: 1.6rem;

@@ -10,6 +10,9 @@ import Contact from './Contact';
 import Landing from './Landing';
 import PortfolioItemDetail from './PortfolioItemDetail';
 
+const fadeoutDuration = 300;
+const fadeinDuration = 300;
+
 const Wrapper = styled.div`
   /* these classes are all being applied to the section with class name 'route-section */
   .fade-enter {
@@ -17,7 +20,7 @@ const Wrapper = styled.div`
   }
   .fade-enter.fade-enter-active {
     opacity: 1;
-    transition: opacity 300ms ease-in;
+    transition: opacity ${fadeinDuration}ms ease-in;
   }
   .fade-exit {
     opacity: 1;
@@ -25,7 +28,7 @@ const Wrapper = styled.div`
 
   .fade-exit.fade-exit-active {
     opacity: 0.01;
-    transition: opacity 300ms ease-in;
+    transition: opacity ${fadeoutDuration}ms ease-in;
   }
 
   div.transition-group {
@@ -40,14 +43,14 @@ const Wrapper = styled.div`
 `;
 
 function RouteContainer(props) {
-  const { location, socials, handleRouteChange } = props;
+  const { location, socials, handleRouteChange, sidebarBreakpoint } = props;
   return (
     <Wrapper>
       <TransitionGroup className="transition-group">
         <CSSTransition
           key={location.key}
           classNames="fade"
-          timeout={{ enter: 1000, exit: 400 }}
+          timeout={{ enter: fadeinDuration, exit: fadeoutDuration }}
           // the component that is entering has the pathname of the new Route
           onEntering={() => handleRouteChange(location.pathname)}
         >
@@ -61,7 +64,7 @@ function RouteContainer(props) {
                 <PortfolioItemDetail />
               </Route>
               <Route path="/portfolio">
-                <Portfolio />
+                <Portfolio sidebarBreakpoint={sidebarBreakpoint} />
               </Route>
               <Route path="/resume">
                 <Resume />
@@ -85,6 +88,7 @@ RouteContainer.propTypes = {
   location: PropTypes.objectOf(PropTypes.string).isRequired,
   socials: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleRouteChange: PropTypes.func.isRequired,
+  sidebarBreakpoint: PropTypes.number.isRequired,
 };
 
 export default withRouter(RouteContainer);

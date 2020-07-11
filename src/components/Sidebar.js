@@ -15,7 +15,7 @@ const Wrapper = styled.div`
     display: block;
   }
   .animation-enter.animation-enter-active {
-    transform: translate(200px);
+    transform: translate(calc(var(--width-sidebar)));
     transition: transform ${duration}ms;
   }
   .animation-enter-done {
@@ -27,7 +27,7 @@ const Wrapper = styled.div`
     left: 0px;
   }
   .animation-exit.animation-exit-active {
-    transform: translate(-200px);
+    transform: translate(calc(var(--width-sidebar) * -1));
     transition: transform ${duration}ms;
   }
   /* Not needed because default state is display none */
@@ -37,18 +37,21 @@ const Wrapper = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  background-color: #1e3348;
-  color: white;
+  background-color: var(--color-primary-dark);
   height: 100%;
   position: fixed;
-  width: 200px;
+  width: var(--width-sidebar);
   z-index: 2;
-  left: ${(props) => (props.windowWidth < 850 ? '-200px' : 0)};
-  display: ${(props) => (props.windowWidth < 850 ? 'none' : 'block')};
+  left: ${(props) =>
+    props.windowWidth < props.sidebarBreakpoint
+      ? 'calc(var(--width-sidebar) * -1)'
+      : 0};
+  display: ${(props) =>
+    props.windowWidth < props.sidebarBreakpoint ? 'none' : 'block'};
 `;
 
 const NavWrapper = styled.div`
-  background-color: #2a4765;
+  background-color: var(--color-primary-medium);
 `;
 
 const Headshot = styled.div`
@@ -66,15 +69,19 @@ function Sidebar(props) {
     toggleSidebar,
     socials,
     currentPath,
+    sidebarBreakpoint,
   } = props;
   return (
     <Wrapper>
       <CSSTransition in={sidebarOpen} timeout={duration} classNames="animation">
         {/* transitions are applied to this div */}
-        <ContentWrapper windowWidth={windowWidth}>
+        <ContentWrapper
+          windowWidth={windowWidth}
+          sidebarBreakpoint={sidebarBreakpoint}
+        >
           <Link to="/">
             <Headshot />
-            {windowWidth >= 850 ? <Brand /> : null}
+            {windowWidth >= sidebarBreakpoint ? <Brand /> : null}
           </Link>
           <NavWrapper>
             <Navbar toggleSidebar={toggleSidebar} currentPath={currentPath} />
@@ -93,6 +100,7 @@ Sidebar.propTypes = {
   toggleSidebar: PropTypes.func.isRequired,
   socials: PropTypes.arrayOf(PropTypes.object).isRequired,
   currentPath: PropTypes.string.isRequired,
+  sidebarBreakpoint: PropTypes.number.isRequired,
 };
 
 export default Sidebar;

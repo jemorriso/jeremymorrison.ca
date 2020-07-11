@@ -4,13 +4,15 @@ import PropTypes from 'prop-types';
 
 const Header = styled.header`
   width: 100%;
-  min-height: 4em;
-  background-color: #66b0b7;
+  min-height: 11rem;
+  background-color: var(--color-secondary);
   color: white;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 3em;
+  font-family: var(--font-display-primary);
+  font-size: 7rem;
   font-weight: 200;
   text-transform: uppercase;
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
 `;
 
 function SectionHeader(props) {

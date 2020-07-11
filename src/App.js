@@ -34,8 +34,8 @@ library.add(
 );
 
 const Wrapper = styled.div`
-  min-height: 100vh;
-  height: 1px;
+  /*min-height: 100vh;
+  height: 1px;*/
 `;
 
 const OverlayBackground = styled.div`
@@ -51,12 +51,12 @@ const OverlayBackground = styled.div`
 `;
 
 const Container = styled.div`
-  margin-left: 200px;
+  margin-left: var(--width-sidebar);
   min-height: 100vh;
   /* relative so that footer is absolutely positioned relative to the container instead of the whole document */
   position: relative;
 
-  @media (max-width: 850px) {
+  @media (max-width: ${(props) => props.sidebarBreakpoint}px) {
     margin-left: 0;
   }
 `;
@@ -84,6 +84,7 @@ class App extends React.Component {
         icon: ['fab', 'spotify'],
       },
     ];
+    this.sidebarBreakpoint = 850;
 
     this.state = {
       windowWidth: 0,
@@ -128,8 +129,8 @@ class App extends React.Component {
 
   toggleSidebar = () => {
     const { windowWidth } = this.state;
-    // if window is bigger than 850px in width, don't want the sidebar to close ever
-    if (windowWidth < 850) {
+    // if window is bigger than sidebarBreakpoint px in width, don't want the sidebar to close ever
+    if (windowWidth < this.sidebarBreakpoint) {
       this.setState((prevState) => ({ sidebarOpen: !prevState.sidebarOpen }));
     }
   };
@@ -157,15 +158,17 @@ class App extends React.Component {
             socials={this.socials}
             updateContentHeight={this.updateContentHeight}
             currentPath={currentPath}
+            sidebarBreakpoint={this.sidebarBreakpoint}
           />
           <OverlayBackground
             sidebarOpen={sidebarOpen}
             onClick={this.toggleSidebar}
           />
-          <Container>
+          <Container sidebarBreakpoint={this.sidebarBreakpoint}>
             <Topbar
               sidebarOpen={sidebarOpen}
               toggleSidebar={this.toggleSidebar}
+              sidebarBreakpoint={this.sidebarBreakpoint}
             />
             <RouteContainer
               hideSidebar={this.hideSidebar}
@@ -174,6 +177,7 @@ class App extends React.Component {
               updateContentHeight={this.updateContentHeight}
               contentHeight={contentHeight}
               handleRouteChange={this.handleRouteChange}
+              sidebarBreakpoint={this.sidebarBreakpoint}
             />
             <Footer contentHeight={contentHeight} windowHeight={windowHeight} />
           </Container>
