@@ -21,7 +21,7 @@ class PortfolioItem extends React.Component {
     this.socials = [
       {
         href: props.url,
-        icon: 'external-link-alt',
+        icon: ['fas', 'external-link-alt'],
       },
       {
         href: props.source,

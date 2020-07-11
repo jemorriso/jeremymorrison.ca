@@ -4,17 +4,18 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Wrapper = styled.a`
-  color: white;
   margin: 0.5em;
   border-radius: 50%;
   min-height: 1em;
   min-width: 1em;
+
+  cursor: pointer;
 `;
 
 function Icon(props) {
-  const { href, icon } = props;
+  const { as = 'a', href, icon } = props;
   return (
-    <Wrapper href={href}>
+    <Wrapper as={as} href={as === 'a' ? href : undefined}>
       <FontAwesomeIcon icon={icon} />
     </Wrapper>
   );
@@ -22,10 +23,11 @@ function Icon(props) {
 
 Icon.propTypes = {
   href: PropTypes.string.isRequired,
-  icon: PropTypes.oneOfType(
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string),
-  ).isRequired,
+  icon: PropTypes.arrayOf(PropTypes.string).isRequired,
+  as: PropTypes.string,
 };
 
+Icon.defaultProps = {
+  as: 'a',
+};
 export default Icon;

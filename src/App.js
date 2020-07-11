@@ -1,5 +1,3 @@
-// @format
-
 import React from 'react';
 // styled here is the local alias for the default export, while createGlobalStyle is another export from styled-components
 import styled from 'styled-components';
@@ -14,6 +12,7 @@ import {
 import {
   faEnvelope,
   faExternalLinkAlt,
+  faBars,
 } from '@fortawesome/free-solid-svg-icons';
 
 import Sidebar from './components/Sidebar';
@@ -31,6 +30,7 @@ library.add(
   faSpotify,
   faEnvelope,
   faExternalLinkAlt,
+  faBars,
 );
 
 const Wrapper = styled.div`
@@ -68,7 +68,7 @@ class App extends React.Component {
     // use this.* for variables that don't change - it is more readable if only variables that change are in state,
     // state causes re-render
     this.socials = [
-      { href: 'mailto:contact@jeremymorrison.ca', icon: 'envelope' },
+      { href: 'mailto:contact@jeremymorrison.ca', icon: ['fas', 'envelope'] },
       {
         href: 'https://www.linkedin.com/in/jwill-morrison/',
         icon: ['fab', 'linkedin'],
