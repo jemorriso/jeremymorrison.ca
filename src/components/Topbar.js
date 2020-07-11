@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import Brand from './Brand';
 import Icon from './Icon';
@@ -11,11 +12,16 @@ const Wrapper = styled.div`
   background-color: white;
   color: var(--color-secondary);
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  align-items: center;
 
   @media (min-width: ${(props) => props.sidebarBreakpoint}px) {
     display: none;
   }
+`;
+
+const TopbarBrand = styled(Brand)`
+  margin: 0;
 `;
 
 function Topbar(props) {
@@ -25,9 +31,11 @@ function Topbar(props) {
       {/* wrap icon with div because click handler not being triggered on Icon for some reason */}
       <div onClick={toggleSidebar}>
         {/* pass empty string for href because href is required prop */}
-        <Icon as="button" href="" icon={['fas', 'bars']} />
+        <Icon as="button" href="" icon={['fas', 'bars']} fontSize="2em" />
       </div>
-      <Brand />
+      <Link to="/">
+        <TopbarBrand />
+      </Link>
     </Wrapper>
   );
 }
@@ -36,4 +44,5 @@ Topbar.propTypes = {
   toggleSidebar: PropTypes.func.isRequired,
   sidebarBreakpoint: PropTypes.number.isRequired,
 };
+
 export default Topbar;
