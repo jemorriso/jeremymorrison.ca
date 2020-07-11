@@ -6,13 +6,38 @@ import Socials from './Socials';
 
 const Wrapper = styled.div`
   color: ${(props) => (props.lightBackground ? 'black' : 'white')};
-  text-align: center;
   background-image: ${(props) => props.backgroundImage};
   background-size: cover;
 `;
 
+// Wrapper is styled as Grid for square grid elements hack, so use another wrapper to make
+// internal contents into flexbox
+const FlexWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.6rem;
+`;
+
 const PortfolioSocials = styled(Socials)`
   /*background-color: initial;*/
+`;
+
+const ProjectTitle = styled.header`
+  font-size: 5rem;
+  font-family: var(--font-display-3);
+`;
+
+const FlexFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+`;
+
+const Button = styled.button`
+  border: solid;
+  border-radius: 8px;
+  padding: 0.5rem;
 `;
 
 class PortfolioItem extends React.Component {
@@ -64,17 +89,21 @@ class PortfolioItem extends React.Component {
         onMouseEnter={this.hoverOn}
         onMouseLeave={this.hoverOff}
       >
-        {isHovered ? (
-          <div>
-            <p>{summary}</p>
-            <PortfolioSocials socials={this.socials} />
-            <Link to={`/portfolio/${partial}`}>
-              <button type="button">Learn More</button>
-            </Link>
-          </div>
-        ) : (
-          <header>{title}</header>
-        )}
+        <FlexWrapper>
+          {isHovered ? (
+            <fragment>
+              <p>{summary}</p>
+              <FlexFooter>
+                <PortfolioSocials socials={this.socials} />
+                <Link to={`/portfolio/${partial}`}>
+                  <Button type="button">Learn More</Button>
+                </Link>
+              </FlexFooter>
+            </fragment>
+          ) : (
+            <ProjectTitle>{title}</ProjectTitle>
+          )}
+        </FlexWrapper>
       </Wrapper>
     );
   }

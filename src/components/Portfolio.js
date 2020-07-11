@@ -13,6 +13,7 @@ const Grid = styled.div`
   /* max-width: 1100px; */
   margin: auto;
 
+  /* https://css-tricks.com/a-grid-of-logos-in-squares/ */
   & > div {
     display: grid;
   }
