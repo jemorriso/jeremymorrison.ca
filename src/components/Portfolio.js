@@ -8,7 +8,7 @@ import PortfolioItem from './PortfolioItem';
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-  max-width: 1100px;
+  /* max-width: 1100px; */
   margin: auto;
 
   & > div {
@@ -36,34 +36,31 @@ const Grid = styled.div`
 class Portfolio extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      items: [
-        {
-          title: 'Deaf Fire Art',
-          summary:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error asperiores qui accusantium, fugiat non est incidunt nobis quis consequatur quidem labore, minima deleniti sed amet aut? Dolores quas ex odit temporibus nostrum, voluptatum beatae quidem nam ipsa veniam deleniti earum velit porro quis doloremque similique ducimus! Minima accusantium id quia.',
-          url: 'http://www.deaf-fire-art.ca',
-          source: 'https://github.com/JeMorriso/deaf-fire-art',
-          partial: 'deaf-fire-art',
-          backgroundImage: './img/deaffireart.jpg',
-        },
-        {
-          title: 'In It To Winnik',
-          summary:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error asperiores qui accusantium, fugiat non est incidunt nobis quis consequatur quidem labore, minima deleniti sed amet aut? Dolores quas ex odit temporibus nostrum, voluptatum beatae quidem nam ipsa veniam deleniti earum velit porro quis doloremque similique ducimus! Minima accusantium id quia.',
-          url: 'https://in-it-to-winnik.herokuapp.com',
-          source: 'https://github.com/JeMorriso/yahoo-hockey-data',
-          partial: 'in-it-to-winnik',
-          backgroundImage: './img/inittowinnik.png',
-          lightBackground: true,
-        },
-      ],
-    };
+    this.items = [
+      {
+        title: 'Deaf Fire Art',
+        summary:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error asperiores qui accusantium, fugiat non est incidunt nobis quis consequatur quidem labore, minima deleniti sed amet aut? Dolores quas ex odit temporibus nostrum, voluptatum beatae quidem nam ipsa veniam deleniti earum velit porro quis doloremque similique ducimus! Minima accusantium id quia.',
+        url: 'http://www.deaf-fire-art.ca',
+        source: 'https://github.com/JeMorriso/deaf-fire-art',
+        partial: 'deaf-fire-art',
+        backgroundImage: './img/deaffireart.jpg',
+      },
+      {
+        title: 'In It To Winnik',
+        summary:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error asperiores qui accusantium, fugiat non est incidunt nobis quis consequatur quidem labore, minima deleniti sed amet aut? Dolores quas ex odit temporibus nostrum, voluptatum beatae quidem nam ipsa veniam deleniti earum velit porro quis doloremque similique ducimus! Minima accusantium id quia.',
+        url: 'https://in-it-to-winnik.herokuapp.com',
+        source: 'https://github.com/JeMorriso/yahoo-hockey-data',
+        partial: 'in-it-to-winnik',
+        backgroundImage: './img/inittowinnik.png',
+        lightBackground: true,
+      },
+    ];
   }
 
   renderItems() {
-    const { items } = this.state;
-    return items.map((item) => (
+    return this.items.map((item) => (
       <PortfolioItem
         title={item.title}
         summary={item.summary}

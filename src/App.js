@@ -65,6 +65,26 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
+    // use this.* for variables that don't change - it is more readable if only variables that change are in state,
+    // state causes re-render
+    this.socials = [
+      { href: 'mailto:contact@jeremymorrison.ca', icon: 'envelope' },
+      {
+        href: 'https://www.linkedin.com/in/jwill-morrison/',
+        icon: ['fab', 'linkedin'],
+      },
+      { href: 'https://github.com/JeMorriso', icon: ['fab', 'github'] },
+      {
+        href: 'https://www.instagram.com/_jeremymorrison/',
+        icon: ['fab', 'instagram'],
+      },
+      {
+        href:
+          'https://open.spotify.com/user/11y8roaohv2cggx4q9u09fiiu?si=4d0c5dj1RnajQmzcwEY9Zw',
+        icon: ['fab', 'spotify'],
+      },
+    ];
+
     this.state = {
       windowWidth: 0,
       windowHeight: 0,
@@ -72,23 +92,6 @@ class App extends React.Component {
       // not sure about initial page load
       sidebarOpen: false,
       currentPath: null,
-      socials: [
-        { href: 'mailto:contact@jeremymorrison.ca', icon: 'envelope' },
-        {
-          href: 'https://www.linkedin.com/in/jwill-morrison/',
-          icon: ['fab', 'linkedin'],
-        },
-        { href: 'https://github.com/JeMorriso', icon: ['fab', 'github'] },
-        {
-          href: 'https://www.instagram.com/_jeremymorrison/',
-          icon: ['fab', 'instagram'],
-        },
-        {
-          href:
-            'https://open.spotify.com/user/11y8roaohv2cggx4q9u09fiiu?si=4d0c5dj1RnajQmzcwEY9Zw',
-          icon: ['fab', 'spotify'],
-        },
-      ],
     };
   }
 
@@ -141,7 +144,6 @@ class App extends React.Component {
       windowWidth,
       windowHeight,
       sidebarOpen,
-      socials,
       contentHeight,
       currentPath,
     } = this.state;
@@ -152,7 +154,7 @@ class App extends React.Component {
             windowWidth={windowWidth}
             sidebarOpen={sidebarOpen}
             toggleSidebar={this.toggleSidebar}
-            socials={socials}
+            socials={this.socials}
             updateContentHeight={this.updateContentHeight}
             currentPath={currentPath}
           />
@@ -168,7 +170,7 @@ class App extends React.Component {
             <RouteContainer
               hideSidebar={this.hideSidebar}
               sidebarOpen={sidebarOpen}
-              socials={socials}
+              socials={this.socials}
               updateContentHeight={this.updateContentHeight}
               contentHeight={contentHeight}
               handleRouteChange={this.handleRouteChange}

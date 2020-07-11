@@ -12,21 +12,25 @@ const Wrapper = styled.div`
   background-size: cover;
 `;
 
+const PortfolioSocials = styled(Socials)`
+  /*background-color: initial;*/
+`;
+
 class PortfolioItem extends React.Component {
   constructor(props) {
     super(props);
+    this.socials = [
+      {
+        href: props.url,
+        icon: 'external-link-alt',
+      },
+      {
+        href: props.source,
+        icon: ['fab', 'github'],
+      },
+    ];
     this.state = {
       isHovered: false,
-      socials: [
-        {
-          href: props.url,
-          icon: 'external-link-alt',
-        },
-        {
-          href: props.source,
-          icon: ['fab', 'github'],
-        },
-      ],
     };
   }
 
@@ -43,7 +47,7 @@ class PortfolioItem extends React.Component {
       lightBackground,
       summary,
     } = this.props;
-    const { isHovered, socials } = this.state;
+    const { isHovered } = this.state;
 
     const imgURL = `url('${backgroundImage}')`;
     return (
@@ -56,7 +60,7 @@ class PortfolioItem extends React.Component {
         {isHovered ? (
           <div>
             <p>{summary}</p>
-            <Socials socials={socials} />
+            <PortfolioSocials socials={this.socials} />
             <Link to={`/portfolio/${partial}`}>
               <button type="button">Learn More</button>
             </Link>
