@@ -38,6 +38,14 @@ class PortfolioItem extends React.Component {
     this.setState((oldState) => ({ isHovered: !oldState.isHovered }));
   };
 
+  hoverOff = () => {
+    this.setState({ isHovered: false });
+  };
+
+  hoverOn = () => {
+    this.setState({ isHovered: true });
+  };
+
   render() {
     const {
       title,
@@ -53,8 +61,8 @@ class PortfolioItem extends React.Component {
       <Wrapper
         backgroundImage={imgURL}
         lightBackground={lightBackground}
-        onMouseEnter={this.toggleHover}
-        onMouseLeave={this.toggleHover}
+        onMouseEnter={this.hoverOn}
+        onMouseLeave={this.hoverOff}
       >
         {isHovered ? (
           <div>
