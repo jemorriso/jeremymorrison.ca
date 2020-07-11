@@ -92,7 +92,7 @@ class App extends React.Component {
       contentHeight: 0,
       // not sure about initial page load
       sidebarOpen: false,
-      currentPath: null,
+      currentPath: window.location.pathname,
     };
   }
 
