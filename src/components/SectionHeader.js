@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const Header = styled.header`
-  width: 100%;
   min-height: 11rem;
   background-color: var(--color-secondary);
   color: white;
