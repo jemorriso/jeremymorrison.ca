@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Brand from './Brand';
 import PropTypes from 'prop-types';
+
+import Brand from './Brand';
+import Icon from './Icon';
 
 const Wrapper = styled.div`
   top: 0;
@@ -16,17 +18,15 @@ const Wrapper = styled.div`
   }
 `;
 
-const Icon = styled.div`
-  min-height: 1em;
-  min-width: 1em;
-  background-color: #666;
-`;
-
 function Topbar(props) {
   const { toggleSidebar, sidebarBreakpoint } = props;
   return (
     <Wrapper id="topbar" sidebarBreakpoint={sidebarBreakpoint}>
-      <Icon onClick={toggleSidebar} />
+      {/* wrap icon with div because click handler not being triggered on Icon for some reason */}
+      <div onClick={toggleSidebar}>
+        {/* pass empty string for href because href is required prop */}
+        <Icon as="button" href="" icon={['fas', 'bars']} />
+      </div>
       <Brand />
     </Wrapper>
   );
