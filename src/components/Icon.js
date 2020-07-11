@@ -8,14 +8,15 @@ const Wrapper = styled.a`
   border-radius: 50%;
   min-height: 1em;
   min-width: 1em;
+  font-size: ${(props) => props.fontSize};
 
   cursor: pointer;
 `;
 
 function Icon(props) {
-  const { as = 'a', href, icon } = props;
+  const { as = 'a', href, icon, fontSize } = props;
   return (
-    <Wrapper as={as} href={as === 'a' ? href : undefined}>
+    <Wrapper as={as} href={as === 'a' ? href : undefined} fontSize={fontSize}>
       <FontAwesomeIcon icon={icon} />
     </Wrapper>
   );
@@ -25,9 +26,11 @@ Icon.propTypes = {
   href: PropTypes.string.isRequired,
   icon: PropTypes.arrayOf(PropTypes.string).isRequired,
   as: PropTypes.string,
+  fontSize: PropTypes.string,
 };
 
 Icon.defaultProps = {
   as: 'a',
+  fontSize: 'inherit',
 };
 export default Icon;
