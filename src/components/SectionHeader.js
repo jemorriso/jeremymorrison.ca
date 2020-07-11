@@ -12,7 +12,7 @@ const Header = styled.header`
   font-weight: 200;
   text-transform: uppercase;
   padding-top: 0.5rem;
-  padding-left: 0.5rem;
+  padding-left: 1rem;
 `;
 
 function SectionHeader(props) {
