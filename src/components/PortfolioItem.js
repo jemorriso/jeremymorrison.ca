@@ -6,8 +6,34 @@ import Socials from './Socials';
 
 const Wrapper = styled.div`
   color: ${(props) => (props.lightBackground ? 'black' : 'white')};
-  background-image: ${(props) => props.backgroundImage};
-  background-size: cover;
+
+  /* https://css-tricks.com/a-grid-of-logos-in-squares/ */
+  display: grid;
+
+  &::before {
+    content: '';
+    /* force height to be at least as tall as it is wide - this is because padding-top and padding-bottom
+     * are based on parent element's width
+     * */
+    /* https://css-tricks.com/aspect-ratio-boxes/ */
+    padding-bottom: 100%;
+    background-image: ${(props) => props.backgroundImage};
+    background-size: cover;
+
+    display: block;
+    z-index: -1;
+    opacity: 0.8;
+  }
+
+  &:hover::before {
+    opacity: 0.5;
+  }
+
+  &::before,
+  & > * {
+    /* overlap the pseudo-element and the content */
+    grid-area: 1 / 1 / 2 / 2;
+  }
 `;
 
 // Wrapper is styled as Grid for square grid elements hack, so use another wrapper to make

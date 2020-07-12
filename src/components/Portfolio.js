@@ -12,23 +12,6 @@ const Grid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   /* max-width: 1100px; */
   margin: auto;
-
-  /* https://css-tricks.com/a-grid-of-logos-in-squares/ */
-  & > div {
-    display: grid;
-  }
-
-  & > div::before {
-    content: '';
-    /* force height to be at least as tall as it is wide */
-    padding-bottom: 100%;
-    display: block;
-  }
-
-  & > div::before,
-  & > div > * {
-    /* overlap the pseudo-element and the content */
-    grid-area: 1 / 1 / 2 / 2;
   }
 
   @media (max-width: ${(props) => props.sidebarBreakpoint}px) {
