@@ -9,7 +9,7 @@ const Wrapper = styled.nav`
 
 const Ul = styled.ul`
   /*padding-left: 1rem;*/
-  line-height: 1.5;
+  line-height: 4.2rem;
 `;
 
 const Li = styled.li`
