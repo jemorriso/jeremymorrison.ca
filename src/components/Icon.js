@@ -14,9 +14,14 @@ const Wrapper = styled.a`
 `;
 
 function Icon(props) {
-  const { as = 'a', href, icon, fontSize } = props;
+  const { as = 'a', href, icon, fontSize, target } = props;
   return (
-    <Wrapper as={as} href={as === 'a' ? href : undefined} fontSize={fontSize}>
+    <Wrapper
+      as={as}
+      href={as === 'a' ? href : undefined}
+      fontSize={fontSize}
+      target={target}
+    >
       <FontAwesomeIcon icon={icon} />
     </Wrapper>
   );
@@ -27,10 +32,12 @@ Icon.propTypes = {
   icon: PropTypes.arrayOf(PropTypes.string).isRequired,
   as: PropTypes.string,
   fontSize: PropTypes.string,
+  target: PropTypes.string,
 };
 
 Icon.defaultProps = {
   as: 'a',
   fontSize: 'initial',
+  target: '',
 };
 export default Icon;
