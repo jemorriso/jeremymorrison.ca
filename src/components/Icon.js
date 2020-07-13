@@ -31,6 +31,6 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
   as: 'a',
-  fontSize: 'inherit',
+  fontSize: 'initial',
 };
 export default Icon;

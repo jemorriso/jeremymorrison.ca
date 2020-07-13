@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 function Socials(props) {
   // in order for any styled component to extend Socials, must pass className through to the rendered component
   // that the style is meant to be applied to (see docs)
-  const { socials, className } = props;
+  const { socials, fontSize, className } = props;
   return (
     // the rendered component that extended styles are adding style to
     <Wrapper className={className}>
@@ -26,6 +26,7 @@ function Socials(props) {
           rel="noopener noreferrer"
           key={uuidv4()}
           icon={el.icon}
+          fontSize={fontSize}
         />
       ))}
     </Wrapper>
@@ -35,10 +36,12 @@ function Socials(props) {
 Socials.propTypes = {
   socials: PropTypes.arrayOf(PropTypes.object).isRequired,
   className: PropTypes.string,
+  fontSize: PropTypes.string,
 };
 
 Socials.defaultProps = {
   className: '',
+  fontSize: 'initial',
 };
 
 export default Socials;
