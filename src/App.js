@@ -13,6 +13,7 @@ import {
   faEnvelope,
   faExternalLinkAlt,
   faBars,
+  faFile,
 } from '@fortawesome/free-solid-svg-icons';
 
 import Sidebar from './components/Sidebar';
@@ -31,6 +32,7 @@ library.add(
   faEnvelope,
   faExternalLinkAlt,
   faBars,
+  faFile,
 );
 
 const Wrapper = styled.div`

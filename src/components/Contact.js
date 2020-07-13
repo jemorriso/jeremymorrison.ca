@@ -11,7 +11,7 @@ function Contact(props) {
   return (
     <Wrapper>
       <SectionHeader title="Contact" />
-      <Socials socials={socials} />
+      <Socials socials={socials} fontSize="4.8rem" />
     </Wrapper>
   );
 }
@@ -19,4 +19,5 @@ function Contact(props) {
 Contact.propTypes = {
   socials: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
+
 export default Contact;

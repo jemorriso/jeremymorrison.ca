@@ -44,6 +44,7 @@ const Wrapper = styled.div`
 
 function RouteContainer(props) {
   const { location, socials, handleRouteChange, sidebarBreakpoint } = props;
+  const contactSocials = socials.slice(0, 2);
   return (
     <Wrapper>
       <TransitionGroup className="transition-group">
@@ -70,7 +71,7 @@ function RouteContainer(props) {
                 <Resume />
               </Route>
               <Route path="/contact">
-                <Contact socials={socials} />
+                <Contact socials={contactSocials} />
               </Route>
               <Route path="/">
                 <Landing />
