@@ -39,10 +39,15 @@ const Wrapper = styled.div`
   }
   section.route-section {
     position: absolute;
+    height: 100%;
     width: 100%;
     top: 0;
     left: 0;
   }
+`;
+
+const TransitionWrapper = styled(TransitionGroup)`
+  height: 100%;
 `;
 
 function RouteContainer(props) {
@@ -50,7 +55,7 @@ function RouteContainer(props) {
   const contactSocials = socials.slice(0, 2);
   return (
     <Wrapper>
-      <TransitionGroup className="transition-group">
+      <TransitionWrapper className="transition-group">
         <CSSTransition
           key={location.key}
           classNames="fade"
@@ -82,7 +87,7 @@ function RouteContainer(props) {
             </Switch>
           </section>
         </CSSTransition>
-      </TransitionGroup>
+      </TransitionWrapper>
     </Wrapper>
   );
 }
