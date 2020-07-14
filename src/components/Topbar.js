@@ -7,7 +7,9 @@ import Brand from './Brand';
 import Icon from './Icon';
 
 const Wrapper = styled.div`
-  top: 0;
+  /* flex-grow default 0; will not expand to fill rest of container */
+  flex: 0 1 auto;
+
   width: 100%;
   background-color: white;
   color: var(--color-secondary);

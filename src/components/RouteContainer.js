@@ -14,6 +14,9 @@ const fadeoutDuration = 300;
 const fadeinDuration = 300;
 
 const Wrapper = styled.div`
+  /* flex-grow 1 vs topbar's flex-grow 0, so this element will fill the rest of the flex container*/
+  flex: 1 1 auto;
+
   /* these classes are all being applied to the section with class name 'route-section */
   .fade-enter {
     opacity: 0.01;

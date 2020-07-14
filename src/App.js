@@ -54,9 +54,14 @@ const OverlayBackground = styled.div`
 
 const Container = styled.div`
   margin-left: var(--width-sidebar);
-  min-height: 100vh;
+  height: 100vh;
   /* relative so that footer is absolutely positioned relative to the container instead of the whole document */
   position: relative;
+
+  /* flex container for topbar and route content, so that route content can fill the rest of the container */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 
   @media (max-width: ${(props) => props.sidebarBreakpoint}px) {
     margin-left: 0;
