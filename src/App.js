@@ -121,12 +121,19 @@ class App extends React.Component {
   };
 
   updateContentHeight = () => {
-    const contentHeight =
-      document.getElementsByClassName('route-section')[0].clientHeight +
-      document.getElementById('topbar').clientHeight;
+    const fadeEnterActive = document.getElementsByClassName(
+      'fade-enter-active',
+    )[0];
 
+    const sectionHeight =
+      fadeEnterActive === undefined
+        ? document.getElementsByClassName('route-section')[0].clientHeight
+        : fadeEnterActive.clientHeight;
+
+    const contentHeight =
+      sectionHeight + document.getElementById('topbar').clientHeight;
     this.setState({ contentHeight });
-    console.log(`content height: ${contentHeight}`);
+    // console.log(`content height: ${contentHeight}`);
   };
 
   toggleSidebar = () => {
