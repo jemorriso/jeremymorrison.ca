@@ -43,11 +43,6 @@ function Navbar(props) {
             Portfolio
           </LinkWrapper>
         </Li>
-        <Li to="/about" currentPath={currentPath}>
-          <LinkWrapper to="/about" onClick={toggleSidebar}>
-            About
-          </LinkWrapper>
-        </Li>
         <Li to="/resume" currentPath={currentPath}>
           <LinkWrapper to="/resume" onClick={toggleSidebar}>
             Resume

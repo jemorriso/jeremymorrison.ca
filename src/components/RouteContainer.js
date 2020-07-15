@@ -96,9 +96,6 @@ function RouteContainer(props) {
           >
             <section className="route-section">
               <Switch location={location}>
-                <Route path="/about">
-                  <About />
-                </Route>
                 {/* TODO: clean up routing order */}
                 <Route path="/portfolio/:portfolioDetail">
                   <PortfolioItemDetail />
