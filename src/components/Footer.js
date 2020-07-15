@@ -11,6 +11,8 @@ const Wrapper = styled.footer`
   position: absolute;
   bottom: 0;
   height: 2.5rem;
+  /* footer in front of background image */
+  z-index: 1;
 `;
 
 const MarginTopWrapper = styled(Wrapper)`

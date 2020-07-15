@@ -13,9 +13,38 @@ import PortfolioItemDetail from './PortfolioItemDetail';
 const fadeoutDuration = 300;
 const fadeinDuration = 300;
 
-const Wrapper = styled.div`
+// contains background image and content in flex item
+const FlexWrapper = styled.div`
   /* flex-grow 1 vs topbar's flex-grow 0, so this element will fill the rest of the flex container*/
   flex: 1 1 auto;
+  position: relative;
+`;
+const Wrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  /* content in foreground  */
+  z-index: 1;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* send background image to back */
+    z-index: -1;
+
+    height: 100%;
+    width: 100%;
+
+    content: '';
+    display: block;
+
+    background-image: url('./img/lions-gate.jpg');
+    background-size: cover;
+    filter: grayscale(100%) brightness(75%);
+  }
 
   /* these classes are all being applied to the section with class name 'route-section */
   .fade-enter {
@@ -54,41 +83,43 @@ function RouteContainer(props) {
   const { location, socials, handleRouteChange, sidebarBreakpoint } = props;
   const contactSocials = socials.slice(0, 2);
   return (
-    <Wrapper>
-      <TransitionWrapper className="transition-group">
-        <CSSTransition
-          key={location.key}
-          classNames="fade"
-          timeout={{ enter: fadeinDuration, exit: fadeoutDuration }}
-          // the component that is entering has the pathname of the new Route
-          onEntering={() => handleRouteChange(location.pathname)}
-        >
-          <section className="route-section">
-            <Switch location={location}>
-              <Route path="/about">
-                <About />
-              </Route>
-              {/* TODO: clean up routing order */}
-              <Route path="/portfolio/:portfolioDetail">
-                <PortfolioItemDetail />
-              </Route>
-              <Route path="/portfolio">
-                <Portfolio sidebarBreakpoint={sidebarBreakpoint} />
-              </Route>
-              <Route path="/resume">
-                <Resume />
-              </Route>
-              <Route path="/contact">
-                <Contact socials={contactSocials} />
-              </Route>
-              <Route path="/">
-                <Landing />
-              </Route>
-            </Switch>
-          </section>
-        </CSSTransition>
-      </TransitionWrapper>
-    </Wrapper>
+    <FlexWrapper>
+      <Wrapper>
+        <TransitionWrapper className="transition-group">
+          <CSSTransition
+            key={location.key}
+            classNames="fade"
+            timeout={{ enter: fadeinDuration, exit: fadeoutDuration }}
+            // the component that is entering has the pathname of the new Route
+            onEntering={() => handleRouteChange(location.pathname)}
+          >
+            <section className="route-section">
+              <Switch location={location}>
+                <Route path="/about">
+                  <About />
+                </Route>
+                {/* TODO: clean up routing order */}
+                <Route path="/portfolio/:portfolioDetail">
+                  <PortfolioItemDetail />
+                </Route>
+                <Route path="/portfolio">
+                  <Portfolio sidebarBreakpoint={sidebarBreakpoint} />
+                </Route>
+                <Route path="/resume">
+                  <Resume />
+                </Route>
+                <Route path="/contact">
+                  <Contact socials={contactSocials} />
+                </Route>
+                <Route path="/">
+                  <Landing />
+                </Route>
+              </Switch>
+            </section>
+          </CSSTransition>
+        </TransitionWrapper>
+      </Wrapper>
+    </FlexWrapper>
   );
 }
 
