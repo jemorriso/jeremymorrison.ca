@@ -19,6 +19,7 @@ const FlexWrapper = styled.div`
   flex: 1 1 auto;
   position: relative;
 `;
+
 const Wrapper = styled.div`
   position: absolute;
   top: 0;
@@ -68,7 +69,7 @@ const Wrapper = styled.div`
   }
   section.route-section {
     position: absolute;
-    height: 100%;
+    /* not defining height here because parent is 100vh - use this section's natural height so that client height is correct */
     width: 100%;
     top: 0;
     left: 0;
