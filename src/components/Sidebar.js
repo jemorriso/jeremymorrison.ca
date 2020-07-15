@@ -79,7 +79,7 @@ function Sidebar(props) {
           windowWidth={windowWidth}
           sidebarBreakpoint={sidebarBreakpoint}
         >
-          <Link to="/">
+          <Link to="/" onClick={toggleSidebar}>
             <Headshot />
             {windowWidth >= sidebarBreakpoint ? <Brand /> : null}
           </Link>
