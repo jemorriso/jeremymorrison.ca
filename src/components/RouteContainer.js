@@ -33,7 +33,7 @@ const Wrapper = styled.div`
     top: 0;
     left: 0;
     /* send background image to back */
-    z-index: -1;
+    z-index: -2;
 
     height: 100%;
     width: 100%;

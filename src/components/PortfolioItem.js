@@ -10,6 +10,14 @@ const Wrapper = styled.div`
   /* https://css-tricks.com/a-grid-of-logos-in-squares/ */
   display: grid;
 
+  &::after {
+    background-color: grey;
+    padding-bottom: 100%;
+    content: '';
+    display: block;
+    z-index: -2;
+  }
+
   &::before {
     content: '';
     /* force height to be at least as tall as it is wide - this is because padding-top and padding-bottom
@@ -30,6 +38,7 @@ const Wrapper = styled.div`
   }
 
   &::before,
+  &::after,
   & > * {
     /* overlap the pseudo-element and the content */
     grid-area: 1 / 1 / 2 / 2;
