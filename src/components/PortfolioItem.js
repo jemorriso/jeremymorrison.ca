@@ -52,6 +52,8 @@ const FlexWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin: 5rem;
+  line-height: 1.7;
+  font-size: 2rem;
 `;
 
 const PortfolioSocials = styled(Socials)`
@@ -130,9 +132,9 @@ class PortfolioItem extends React.Component {
             <fragment>
               <p>{summary}</p>
               <FlexFooter>
-                <PortfolioSocials socials={this.socials} />
+                <PortfolioSocials socials={this.socials} fontSize="5rem" />
                 <Link to={`/portfolio/${partial}`}>
-                  <Button type="button">Learn More</Button>
+                  {/* <Button type="button">Learn More</Button> */}
                 </Link>
               </FlexFooter>
             </fragment>

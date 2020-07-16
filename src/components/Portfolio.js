@@ -26,7 +26,7 @@ class Portfolio extends React.Component {
       {
         title: 'Deaf Fire Art',
         summary:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error asperiores qui accusantium, fugiat non est incidunt nobis quis consequatur quidem labore, minima deleniti sed amet aut? Dolores quas ex odit temporibus nostrum, voluptatum beatae quidem nam ipsa veniam deleniti earum velit porro quis doloremque similique ducimus! Minima accusantium id quia.',
+          'Small business website for client who needed a platform to showcase their woodburning art to friends, family, and other customers. Features an image gallery page with a lightbox display and an email contact form. Image uploading and editing accessible via authentication. Images hosted in an Amazon S3 bucket.',
         url: 'http://www.deaf-fire-art.ca',
         source: 'https://github.com/JeMorriso/deaf-fire-art',
         partial: 'deaf-fire-art',
@@ -35,7 +35,7 @@ class Portfolio extends React.Component {
       {
         title: 'In It To Winnik',
         summary:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error asperiores qui accusantium, fugiat non est incidunt nobis quis consequatur quidem labore, minima deleniti sed amet aut? Dolores quas ex odit temporibus nostrum, voluptatum beatae quidem nam ipsa veniam deleniti earum velit porro quis doloremque similique ducimus! Minima accusantium id quia.',
+          "I created this website for my fantasy hockey league in order to give league mates access to a richer dataset than the one provided by Yahoo. This was accomplished by cross-referencing data about the league from Yahoo's API with NHL player data, from NHL.com's API. The resulting database allows for flexible and performant searches in order to visualize a wide variety of scenarios in the browser.",
         url: 'https://in-it-to-winnik.herokuapp.com',
         source: 'https://github.com/JeMorriso/yahoo-hockey-data',
         partial: 'in-it-to-winnik',
