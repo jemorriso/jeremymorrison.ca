@@ -193,7 +193,7 @@ class App extends React.Component {
               handleRouteChange={this.handleRouteChange}
               sidebarBreakpoint={this.sidebarBreakpoint}
             />
-            <Footer contentHeight={contentHeight} windowHeight={windowHeight} />
+            {/* <Footer contentHeight={contentHeight} windowHeight={windowHeight} /> */}
           </Container>
         </Wrapper>
       </Router>
