@@ -41,7 +41,7 @@ const ContentWrapper = styled.div`
   height: 100%;
   position: fixed;
   width: var(--width-sidebar);
-  z-index: 2;
+  z-index: 3;
   left: ${(props) =>
     props.windowWidth < props.sidebarBreakpoint
       ? 'calc(var(--width-sidebar) * -1)'

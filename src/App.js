@@ -44,7 +44,7 @@ const OverlayBackground = styled.div`
   display: ${(props) => (props.sidebarOpen ? 'block' : 'none')};
   background-color: black;
   opacity: 0.5;
-  z-index: 1;
+  z-index: 2;
   position: absolute;
   top: 0;
   left: 0;
