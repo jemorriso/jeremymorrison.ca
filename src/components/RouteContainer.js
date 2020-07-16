@@ -69,10 +69,15 @@ const Wrapper = styled.div`
   }
   section.route-section {
     position: absolute;
-    /* not defining height here because parent is 100vh - use this section's natural height so that client height is correct */
+    /* min-height + flex: at least height of parent, but natural height beyond */
+    /* flex-items can expand to take up entire flexbox this way  */
+    /* 100vh not working properly, use percentage instead */
+    min-height: 100%;
     width: 100%;
     top: 0;
     left: 0;
+    display: flex;
+    flex-direction: column;
   }
 `;
 
