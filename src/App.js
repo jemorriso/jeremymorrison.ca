@@ -92,6 +92,7 @@ class App extends React.Component {
       },
     ];
     this.sidebarBreakpoint = 850;
+    this.smallDeviceBreakpoint = 520;
 
     this.state = {
       windowWidth: 0,
@@ -183,6 +184,7 @@ class App extends React.Component {
               sidebarOpen={sidebarOpen}
               toggleSidebar={this.toggleSidebar}
               sidebarBreakpoint={this.sidebarBreakpoint}
+              smallDeviceBreakpoint={this.smallDeviceBreakpoint}
             />
             <RouteContainer
               hideSidebar={this.hideSidebar}
@@ -192,6 +194,7 @@ class App extends React.Component {
               contentHeight={contentHeight}
               handleRouteChange={this.handleRouteChange}
               sidebarBreakpoint={this.sidebarBreakpoint}
+              smallDeviceBreakpoint={this.smallDeviceBreakpoint}
             />
             {/* <Footer contentHeight={contentHeight} windowHeight={windowHeight} /> */}
           </Container>

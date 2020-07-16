@@ -61,10 +61,13 @@ class Portfolio extends React.Component {
   }
 
   render() {
-    const { sidebarBreakpoint } = this.props;
+    const { sidebarBreakpoint, smallDeviceBreakpoint } = this.props;
     return (
       <section>
-        <SectionHeader title="Portfolio" />
+        <SectionHeader
+          title="Portfolio"
+          smallDeviceBreakpoint={smallDeviceBreakpoint}
+        />
         <Grid sidebarBreakpoint={sidebarBreakpoint}>{this.renderItems()}</Grid>
         <Switch>
           <Route path="/portfolio/:portfolioDetail">
@@ -78,6 +81,7 @@ class Portfolio extends React.Component {
 
 Portfolio.propTypes = {
   sidebarBreakpoint: PropTypes.number.isRequired,
+  smallDeviceBreakpoint: PropTypes.number.isRequired,
 };
 
 export default Portfolio;

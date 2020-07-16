@@ -8,26 +8,37 @@ const Wrapper = styled.section`
   height: 100%;
 `;
 
-const FlexWrapper = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: flex-start; */
-  justify-content: flex-end;
-`;
+const ContactSocials = styled(Socials)`
+  @media (max-width: ${(props) => props.smallDeviceBreakpoint}px) {
+    flex-direction: column;
+  }
 
+  & > a {
+    @media (max-width: ${(props) => props.smallDeviceBreakpoint}px) {
+      margin: 1rem;
+    }
+  }
+`;
 function Contact(props) {
-  const { socials } = props;
+  const { socials, smallDeviceBreakpoint } = props;
   return (
     <Wrapper>
-      <SectionHeader title="Contact" />
-      <Socials socials={socials} fontSize="11rem" />
+      <SectionHeader
+        title="Contact"
+        smallDeviceBreakpoint={smallDeviceBreakpoint}
+      />
+      <ContactSocials
+        socials={socials}
+        fontSize="11rem"
+        smallDeviceBreakpoint={smallDeviceBreakpoint}
+      />
     </Wrapper>
   );
 }
 
 Contact.propTypes = {
   socials: PropTypes.arrayOf(PropTypes.object).isRequired,
+  smallDeviceBreakpoint: PropTypes.number.isRequired,
 };
 
 export default Contact;

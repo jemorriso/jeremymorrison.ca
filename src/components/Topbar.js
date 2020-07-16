@@ -24,10 +24,14 @@ const Wrapper = styled.div`
 
 const TopbarBrand = styled(Brand)`
   margin: 0;
+
+  @media (max-width: ${(props) => props.smallDeviceBreakpoint}px) {
+    font-size: 3rem;
+  }
 `;
 
 function Topbar(props) {
-  const { toggleSidebar, sidebarBreakpoint } = props;
+  const { toggleSidebar, sidebarBreakpoint, smallDeviceBreakpoint } = props;
   return (
     <Wrapper id="topbar" sidebarBreakpoint={sidebarBreakpoint}>
       {/* wrap icon with div because click handler not being triggered on Icon for some reason */}
@@ -36,7 +40,7 @@ function Topbar(props) {
         <Icon as="button" href="" icon={['fas', 'bars']} fontSize="2em" />
       </div>
       <Link to="/">
-        <TopbarBrand />
+        <TopbarBrand smallDeviceBreakpoint={smallDeviceBreakpoint} />
       </Link>
     </Wrapper>
   );
@@ -45,6 +49,7 @@ function Topbar(props) {
 Topbar.propTypes = {
   toggleSidebar: PropTypes.func.isRequired,
   sidebarBreakpoint: PropTypes.number.isRequired,
+  smallDeviceBreakpoint: PropTypes.number.isRequired,
 };
 
 export default Topbar;

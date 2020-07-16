@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import SectionHeader from './SectionHeader';
 import Socials from './Socials';
 
@@ -8,6 +9,7 @@ const Wrapper = styled.section`
 `;
 
 function Resume(props) {
+  const { smallDeviceBreakpoint } = props;
   const resumeSocials = [
     {
       href: './docs/JeremyMorrisonResume.pdf',
@@ -16,10 +18,16 @@ function Resume(props) {
   ];
   return (
     <Wrapper>
-      <SectionHeader title="Resume" />
+      <SectionHeader
+        title="Resume"
+        smallDeviceBreakpoint={smallDeviceBreakpoint}
+      />
       <Socials socials={resumeSocials} fontSize="11rem" />
     </Wrapper>
   );
 }
 
+Resume.propTypes = {
+  smallDeviceBreakpoint: PropTypes.number.isRequired,
+};
 export default Resume;

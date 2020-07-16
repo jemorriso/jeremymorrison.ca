@@ -1,11 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import SectionHeader from './SectionHeader';
 
 function PortfolioItemDetail(props) {
+  const { smallDeviceBreakpoint } = props;
   return (
     <section>
-      <SectionHeader title="Test" />
+      <SectionHeader
+        title="Test"
+        smallDeviceBreakpoint={smallDeviceBreakpoint}
+      />
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque
         voluptates dolore maxime fugiat eveniet? Amet debitis veritatis
@@ -55,5 +60,9 @@ function PortfolioItemDetail(props) {
     </section>
   );
 }
+
+PortfolioItemDetail.propTypes = {
+  smallDeviceBreakpoint: PropTypes.number.isRequired,
+};
 
 export default PortfolioItemDetail;

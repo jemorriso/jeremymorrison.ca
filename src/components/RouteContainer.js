@@ -69,15 +69,16 @@ const Wrapper = styled.div`
   }
   section.route-section {
     position: absolute;
+    top: 0;
+    left: 0;
     /* min-height + flex: at least height of parent, but natural height beyond */
     /* flex-items can expand to take up entire flexbox this way  */
     /* 100vh not working properly, use percentage instead */
     min-height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
     display: flex;
     flex-direction: column;
+
+    width: 100%;
   }
 `;
 
@@ -86,7 +87,13 @@ const TransitionWrapper = styled(TransitionGroup)`
 `;
 
 function RouteContainer(props) {
-  const { location, socials, handleRouteChange, sidebarBreakpoint } = props;
+  const {
+    location,
+    socials,
+    handleRouteChange,
+    sidebarBreakpoint,
+    smallDeviceBreakpoint,
+  } = props;
   const contactSocials = socials.slice(0, 2);
   return (
     <FlexWrapper>
@@ -103,19 +110,27 @@ function RouteContainer(props) {
               <Switch location={location}>
                 {/* TODO: clean up routing order */}
                 <Route path="/portfolio/:portfolioDetail">
-                  <PortfolioItemDetail />
+                  <PortfolioItemDetail
+                    smallDeviceBreakpoint={smallDeviceBreakpoint}
+                  />
                 </Route>
                 <Route path="/portfolio">
-                  <Portfolio sidebarBreakpoint={sidebarBreakpoint} />
+                  <Portfolio
+                    sidebarBreakpoint={sidebarBreakpoint}
+                    smallDeviceBreakpoint={smallDeviceBreakpoint}
+                  />
                 </Route>
                 <Route path="/resume">
-                  <Resume />
+                  <Resume smallDeviceBreakpoint={smallDeviceBreakpoint} />
                 </Route>
                 <Route path="/contact">
-                  <Contact socials={contactSocials} />
+                  <Contact
+                    socials={contactSocials}
+                    smallDeviceBreakpoint={smallDeviceBreakpoint}
+                  />
                 </Route>
                 <Route path="/">
-                  <Landing />
+                  <Landing smallDeviceBreakpoint={smallDeviceBreakpoint} />
                 </Route>
               </Switch>
             </section>
@@ -132,6 +147,7 @@ RouteContainer.propTypes = {
   socials: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleRouteChange: PropTypes.func.isRequired,
   sidebarBreakpoint: PropTypes.number.isRequired,
+  smallDeviceBreakpoint: PropTypes.number.isRequired,
 };
 
 export default withRouter(RouteContainer);
