@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   display: grid;
 
   &::after {
-    background-color: grey;
+    background-color: ${(props) => (props.lightBackground ? 'white' : 'black')};
     padding-bottom: 100%;
     content: '';
     display: block;
@@ -30,11 +30,11 @@ const Wrapper = styled.div`
 
     display: block;
     z-index: -1;
-    opacity: 0.8;
+    opacity: 0.9;
   }
 
   &:hover::before {
-    opacity: 0.5;
+    opacity: ${(props) => (props.lightBackground ? 0.2 : 0.7)};
   }
 
   &::before,
@@ -51,7 +51,7 @@ const FlexWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1.6rem;
+  margin: 5rem;
 `;
 
 const PortfolioSocials = styled(Socials)`
@@ -61,12 +61,13 @@ const PortfolioSocials = styled(Socials)`
 const ProjectTitle = styled.header`
   font-size: 5rem;
   font-family: var(--font-display-3);
+  margin-bottom: 20%;
 `;
 
 const FlexFooter = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 1rem 0;
+  margin-top: 2rem;
 `;
 
 const Button = styled.button`
