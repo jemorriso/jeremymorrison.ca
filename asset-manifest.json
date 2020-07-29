@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/jeremymorrison.ca/static/css/main.2e5de024.chunk.css",
-    "main.js": "/jeremymorrison.ca/static/js/main.b967cff8.chunk.js",
-    "main.js.map": "/jeremymorrison.ca/static/js/main.b967cff8.chunk.js.map",
-    "runtime-main.js": "/jeremymorrison.ca/static/js/runtime-main.1a31dee3.js",
-    "runtime-main.js.map": "/jeremymorrison.ca/static/js/runtime-main.1a31dee3.js.map",
-    "static/js/2.82f80241.chunk.js": "/jeremymorrison.ca/static/js/2.82f80241.chunk.js",
-    "static/js/2.82f80241.chunk.js.map": "/jeremymorrison.ca/static/js/2.82f80241.chunk.js.map",
-    "index.html": "/jeremymorrison.ca/index.html",
-    "precache-manifest.898e7a6276a4cd1288e73acbc2fbf414.js": "/jeremymorrison.ca/precache-manifest.898e7a6276a4cd1288e73acbc2fbf414.js",
-    "service-worker.js": "/jeremymorrison.ca/service-worker.js",
-    "static/css/main.2e5de024.chunk.css.map": "/jeremymorrison.ca/static/css/main.2e5de024.chunk.css.map",
-    "static/js/2.82f80241.chunk.js.LICENSE.txt": "/jeremymorrison.ca/static/js/2.82f80241.chunk.js.LICENSE.txt",
-    "static/media/globals.css": "/jeremymorrison.ca/static/media/geomanist-regular-webfont.deb2e275.woff"
+    "main.css": "/static/css/main.b4e5ac9c.chunk.css",
+    "main.js": "/static/js/main.b967cff8.chunk.js",
+    "main.js.map": "/static/js/main.b967cff8.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.f4d142a9.js",
+    "runtime-main.js.map": "/static/js/runtime-main.f4d142a9.js.map",
+    "static/js/2.2cd6d060.chunk.js": "/static/js/2.2cd6d060.chunk.js",
+    "static/js/2.2cd6d060.chunk.js.map": "/static/js/2.2cd6d060.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.847937307a8270e0c00b42df9cab4026.js": "/precache-manifest.847937307a8270e0c00b42df9cab4026.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.b4e5ac9c.chunk.css.map": "/static/css/main.b4e5ac9c.chunk.css.map",
+    "static/js/2.2cd6d060.chunk.js.LICENSE.txt": "/static/js/2.2cd6d060.chunk.js.LICENSE.txt",
+    "static/media/globals.css": "/static/media/geomanist-regular-webfont.deb2e275.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.1a31dee3.js",
-    "static/js/2.82f80241.chunk.js",
-    "static/css/main.2e5de024.chunk.css",
+    "static/js/runtime-main.f4d142a9.js",
+    "static/js/2.2cd6d060.chunk.js",
+    "static/css/main.b4e5ac9c.chunk.css",
     "static/js/main.b967cff8.chunk.js"
   ]
 }
