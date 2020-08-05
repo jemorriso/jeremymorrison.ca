@@ -8,14 +8,14 @@ import SectionHeader from './SectionHeader';
 
 import 'react-medium-image-zoom/dist/styles.css';
 
-import home from '../assets/home.mp4';
-import gallery from '../assets/gallery.mp4';
-import email from '../assets/email.mp4';
-import login from '../assets/login.mp4';
-import addImage from '../assets/addImage.mp4';
-import galleryEdit from '../assets/galleryEdit.mp4';
-import editImage from '../assets/editImage.mp4';
-import deleteImage from '../assets/deleteImage.mp4';
+import home from '../assets/deafFireArt/home.mp4';
+import gallery from '../assets/deafFireArt/gallery.mp4';
+import email from '../assets/deafFireArt/email.mp4';
+import login from '../assets/deafFireArt/login.mp4';
+import addImage from '../assets/deafFireArt/addImage.mp4';
+import galleryEdit from '../assets/deafFireArt/galleryEdit.mp4';
+import editImage from '../assets/deafFireArt/editImage.mp4';
+import deleteImage from '../assets/deafFireArt/deleteImage.mp4';
 
 const ImgWrapper = styled.div`
   width: 50%;
