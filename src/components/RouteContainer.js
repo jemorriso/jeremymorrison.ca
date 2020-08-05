@@ -9,6 +9,7 @@ import Resume from './Resume';
 import Contact from './Contact';
 import Landing from './Landing';
 import PortfolioItemDetail from './PortfolioItemDetail';
+import DeafFireArt from './DeafFireArt';
 
 const fadeoutDuration = 300;
 const fadeinDuration = 300;
@@ -47,7 +48,7 @@ const Wrapper = styled.div`
     filter: grayscale(100%) brightness(75%);
   }
 
-  /* these classes are all being applied to the section with class name 'route-section */
+  /* these classes are all being applied to the section with class name 'route-section' */
   .fade-enter {
     opacity: 0.01;
   }
@@ -109,6 +110,9 @@ function RouteContainer(props) {
             <section className="route-section">
               <Switch location={location}>
                 {/* TODO: clean up routing order */}
+                <Route path="/portfolio/deaf-fire-art">
+                  <DeafFireArt smallDeviceBreakpoint={smallDeviceBreakpoint} />
+                </Route>
                 <Route path="/portfolio/:portfolioDetail">
                   <PortfolioItemDetail
                     smallDeviceBreakpoint={smallDeviceBreakpoint}
