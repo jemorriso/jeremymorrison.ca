@@ -134,7 +134,7 @@ class PortfolioItem extends React.Component {
               <FlexFooter>
                 <PortfolioSocials socials={this.socials} fontSize="5rem" />
                 <Link to={`/portfolio/${partial}`}>
-                  {/* <Button type="button">Learn More</Button> */}
+                  <Button type="button">Learn More</Button>
                 </Link>
               </FlexFooter>
             </fragment>
