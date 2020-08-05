@@ -10,6 +10,7 @@ import Contact from './Contact';
 import Landing from './Landing';
 import PortfolioItemDetail from './PortfolioItemDetail';
 import DeafFireArt from './DeafFireArt';
+import InItToWinnik from './InItToWinnik';
 
 const fadeoutDuration = 300;
 const fadeinDuration = 300;
@@ -112,6 +113,9 @@ function RouteContainer(props) {
                 {/* TODO: clean up routing order */}
                 <Route path="/portfolio/deaf-fire-art">
                   <DeafFireArt smallDeviceBreakpoint={smallDeviceBreakpoint} />
+                </Route>
+                <Route path="/portfolio/in-it-to-winnik">
+                  <InItToWinnik smallDeviceBreakpoint={smallDeviceBreakpoint} />
                 </Route>
                 <Route path="/portfolio/:portfolioDetail">
                   <PortfolioItemDetail
