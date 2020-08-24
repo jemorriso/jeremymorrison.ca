@@ -1,23 +1,39 @@
 {
   "files": {
     "main.css": "/static/css/main.b4e5ac9c.chunk.css",
-    "main.js": "/static/js/main.b967cff8.chunk.js",
-    "main.js.map": "/static/js/main.b967cff8.chunk.js.map",
+    "main.js": "/static/js/main.5bc055d2.chunk.js",
+    "main.js.map": "/static/js/main.5bc055d2.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.f4d142a9.js",
     "runtime-main.js.map": "/static/js/runtime-main.f4d142a9.js.map",
-    "static/js/2.2cd6d060.chunk.js": "/static/js/2.2cd6d060.chunk.js",
-    "static/js/2.2cd6d060.chunk.js.map": "/static/js/2.2cd6d060.chunk.js.map",
+    "static/css/2.91062c05.chunk.css": "/static/css/2.91062c05.chunk.css",
+    "static/js/2.0a00888e.chunk.js": "/static/js/2.0a00888e.chunk.js",
+    "static/js/2.0a00888e.chunk.js.map": "/static/js/2.0a00888e.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.847937307a8270e0c00b42df9cab4026.js": "/precache-manifest.847937307a8270e0c00b42df9cab4026.js",
+    "precache-manifest.b37fa5a3d0f6c8919b6385098793cf25.js": "/precache-manifest.b37fa5a3d0f6c8919b6385098793cf25.js",
     "service-worker.js": "/service-worker.js",
+    "static/css/2.91062c05.chunk.css.map": "/static/css/2.91062c05.chunk.css.map",
     "static/css/main.b4e5ac9c.chunk.css.map": "/static/css/main.b4e5ac9c.chunk.css.map",
-    "static/js/2.2cd6d060.chunk.js.LICENSE.txt": "/static/js/2.2cd6d060.chunk.js.LICENSE.txt",
-    "static/media/globals.css": "/static/media/geomanist-regular-webfont.deb2e275.woff"
+    "static/js/2.0a00888e.chunk.js.LICENSE.txt": "/static/js/2.0a00888e.chunk.js.LICENSE.txt",
+    "static/media/globals.css": "/static/media/geomanist-regular-webfont.deb2e275.woff",
+    "static/media/ERdiagram.png": "/static/media/ERdiagram.275fb890.png",
+    "static/media/addImage.mp4": "/static/media/addImage.3706ff8f.mp4",
+    "static/media/allTeams.mp4": "/static/media/allTeams.dab440fc.mp4",
+    "static/media/deleteImage.mp4": "/static/media/deleteImage.ed319837.mp4",
+    "static/media/editImage.mp4": "/static/media/editImage.e78f2529.mp4",
+    "static/media/email.mp4": "/static/media/email.840b9600.mp4",
+    "static/media/gallery.mp4": "/static/media/gallery.27e852cd.mp4",
+    "static/media/galleryEdit.mp4": "/static/media/galleryEdit.f311c41a.mp4",
+    "static/media/home.mp4": "/static/media/home.4d8d4e8b.mp4",
+    "static/media/login.mp4": "/static/media/login.bad7a8e4.mp4",
+    "static/media/matchup.mp4": "/static/media/matchup.10ccbc91.mp4",
+    "static/media/rollingAverageCalendar.mp4": "/static/media/rollingAverageCalendar.fbe14cc7.mp4",
+    "static/media/selectTeams.mp4": "/static/media/selectTeams.69b32c90.mp4"
   },
   "entrypoints": [
     "static/js/runtime-main.f4d142a9.js",
-    "static/js/2.2cd6d060.chunk.js",
+    "static/css/2.91062c05.chunk.css",
+    "static/js/2.0a00888e.chunk.js",
     "static/css/main.b4e5ac9c.chunk.css",
-    "static/js/main.b967cff8.chunk.js"
+    "static/js/main.5bc055d2.chunk.js"
   ]
 }
