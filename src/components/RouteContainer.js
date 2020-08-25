@@ -8,7 +8,6 @@ import Portfolio from './Portfolio';
 import Resume from './Resume';
 import Contact from './Contact';
 import Landing from './Landing';
-import PortfolioItemDetail from './PortfolioItemDetail';
 import DeafFireArt from './DeafFireArt';
 import InItToWinnik from './InItToWinnik';
 
@@ -116,11 +115,6 @@ function RouteContainer(props) {
                 </Route>
                 <Route path="/portfolio/in-it-to-winnik">
                   <InItToWinnik smallDeviceBreakpoint={smallDeviceBreakpoint} />
-                </Route>
-                <Route path="/portfolio/:portfolioDetail">
-                  <PortfolioItemDetail
-                    smallDeviceBreakpoint={smallDeviceBreakpoint}
-                  />
                 </Route>
                 <Route path="/portfolio">
                   <Portfolio
