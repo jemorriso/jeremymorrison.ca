@@ -1,7 +1,7 @@
 import React from 'react';
 // styled here is the local alias for the default export, while createGlobalStyle is another export from styled-components
 import styled from 'styled-components';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faInstagram,
@@ -164,7 +164,7 @@ class App extends React.Component {
       currentPath,
     } = this.state;
     return (
-      <Router>
+      <HashRouter basename="/">
         <Wrapper>
           <Sidebar
             windowWidth={windowWidth}
@@ -199,7 +199,7 @@ class App extends React.Component {
             {/* <Footer contentHeight={contentHeight} windowHeight={windowHeight} /> */}
           </Container>
         </Wrapper>
-      </Router>
+      </HashRouter>
     );
   }
 }
