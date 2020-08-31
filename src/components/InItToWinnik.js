@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+// import { Carousel } from 'react-responsive-carousel';
 import Zoom from 'react-medium-image-zoom';
 import SectionHeader from './SectionHeader';
 
@@ -14,7 +14,18 @@ import rollingAverageCalendar from '../assets/inItToWinnik/rollingAverageCalenda
 import matchup from '../assets/inItToWinnik/matchup.mp4';
 import ERdiagram from '../assets/inItToWinnik/ERdiagram.png';
 
+const ContentWrapper = styled.div`
+  /* width based on number of characters for readability */
+  width: 80ch;
+  max-width: 100%;
+  margin: auto;
+`;
+
 const Video = styled.video`
+  width: 100%;
+`;
+
+const Img = styled.img`
   width: 100%;
 `;
 
@@ -26,7 +37,7 @@ function InItToWinnik(props) {
         title="In It To Winnik"
         smallDeviceBreakpoint={smallDeviceBreakpoint}
       />
-      <Carousel>
+      <ContentWrapper>
         <Zoom>
           <Video autoPlay loop muted playsinline src={allTeams} />
         </Zoom>
@@ -40,9 +51,9 @@ function InItToWinnik(props) {
           <Video autoPlay loop muted playsinline src={matchup} />
         </Zoom>
         <Zoom>
-          <img src={ERdiagram} alt="Entity Relationship Diagram" />
+          <Img src={ERdiagram} alt="Entity Relationship Diagram" />
         </Zoom>
-      </Carousel>
+      </ContentWrapper>
     </section>
   );
 }

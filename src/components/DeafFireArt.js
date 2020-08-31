@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+// import { Carousel } from 'react-responsive-carousel';
 import Zoom from 'react-medium-image-zoom';
 import SectionHeader from './SectionHeader';
 
@@ -17,23 +17,17 @@ import galleryEdit from '../assets/deafFireArt/galleryEdit.mp4';
 import editImage from '../assets/deafFireArt/editImage.mp4';
 import deleteImage from '../assets/deafFireArt/deleteImage.mp4';
 
-const ImgWrapper = styled.div`
-  width: 50%;
-`;
-
-const Img = styled.img`
-  width: 100%;
-`;
-const FlexWrapper = styled.div`
-  /* width: 100%; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+const ContentWrapper = styled.div`
+  /* width based on number of characters for readability */
+  width: 80ch;
+  max-width: 100%;
+  margin: auto;
 `;
 
 const Video = styled.video`
   width: 100%;
 `;
+
 function DeafFireArt(props) {
   const { smallDeviceBreakpoint } = props;
   return (
@@ -42,9 +36,7 @@ function DeafFireArt(props) {
         title="Deaf Fire Art"
         smallDeviceBreakpoint={smallDeviceBreakpoint}
       />
-      {/* <FlexWrapper> */}
-      <Carousel>
-        {/*     <ImgWrapper> */}
+      <ContentWrapper>
         <Zoom>
           <Video autoPlay loop muted playsinline src={home} />
         </Zoom>
@@ -69,10 +61,7 @@ function DeafFireArt(props) {
         <Zoom>
           <Video autoPlay loop muted playsinline src={deleteImage} />
         </Zoom>
-        {/*       <p>Landing page featuring CSS animation</p> */}
-        {/*     </ImgWrapper> */}
-      </Carousel>
-      {/* </FlexWrapper> */}
+      </ContentWrapper>
     </section>
   );
 }
