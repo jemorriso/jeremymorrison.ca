@@ -31,7 +31,8 @@ const Wrapper = styled.div`
   z-index: 1;
 
   &::before {
-    position: absolute;
+    /* background image stays fixed in the viewport */
+    position: fixed;
     top: 0;
     left: 0;
     /* send background image to back */
