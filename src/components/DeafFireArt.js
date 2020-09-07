@@ -1,12 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
-// import { Carousel } from 'react-responsive-carousel';
-import Zoom from 'react-medium-image-zoom';
 import SectionHeader from './SectionHeader';
-
-import 'react-medium-image-zoom/dist/styles.css';
 
 import home from '../assets/deafFireArt/home.mp4';
 import gallery from '../assets/deafFireArt/gallery.mp4';
@@ -26,7 +21,20 @@ const ContentWrapper = styled.div`
 
 const Video = styled.video`
   width: 100%;
+  margin-top: 1em;
 `;
+
+const P = styled.p``;
+
+const projectDetails = `
+The back end is 
+This project was my introduction to using CSS preprocessors, I used SASS here, following a conventional folder structure including folders for abstracts, components, layouts, pages, and vendors. I found it much easier than using basic CSS. All the styling in this project was done without the use of any libraries such as Bootstrap. Transitions were accomplished by using CSS over Javascript wherever possible. Additionally, vanilla JS was used, with no frameworks.
+`;
+
+const imageDescriptions = [
+  'Landing page featuring animated CSS transitions. This project was my introduction to using CSS preprocessors, I used SASS here, following a conventional folder structure including folders for abstracts, components, layouts, pages, and vendors. I found it much easier than using basic CSS. All the styling in this project was done without the use of any libraries such as Bootstrap. Transitions were accomplished by using CSS over Javascript wherever possible. Additionally, vanilla JS was used, with no frameworks.',
+  'The gallery features a responsive CSS grid of image cards. ',
+];
 
 function DeafFireArt(props) {
   const { smallDeviceBreakpoint } = props;
@@ -37,30 +45,14 @@ function DeafFireArt(props) {
         smallDeviceBreakpoint={smallDeviceBreakpoint}
       />
       <ContentWrapper>
-        <Zoom>
-          <Video autoPlay loop muted playsinline src={home} />
-        </Zoom>
-        <Zoom>
-          <Video autoPlay loop muted playsinline src={gallery} />
-        </Zoom>
-        <Zoom>
-          <Video autoPlay loop muted playsinline src={email} />
-        </Zoom>
-        <Zoom>
-          <Video autoPlay loop muted playsinline src={login} />
-        </Zoom>
-        <Zoom>
-          <Video autoPlay loop muted playsinline src={addImage} />
-        </Zoom>
-        <Zoom>
-          <Video autoPlay loop muted playsinline src={galleryEdit} />
-        </Zoom>
-        <Zoom>
-          <Video autoPlay loop muted playsinline src={editImage} />
-        </Zoom>
-        <Zoom>
-          <Video autoPlay loop muted playsinline src={deleteImage} />
-        </Zoom>
+        <Video controls loop muted playsinline src={home} />
+        <Video controls loop muted playsinline src={gallery} />
+        <Video controls loop muted playsinline src={email} />
+        <Video controls loop muted playsinline src={login} />
+        <Video controls loop muted playsinline src={addImage} />
+        <Video controls loop muted playsinline src={galleryEdit} />
+        <Video controls loop muted playsinline src={editImage} />
+        <Video controls loop muted playsinline src={deleteImage} />
       </ContentWrapper>
     </section>
   );

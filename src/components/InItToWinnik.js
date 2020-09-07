@@ -1,12 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
-// import { Carousel } from 'react-responsive-carousel';
-import Zoom from 'react-medium-image-zoom';
 import SectionHeader from './SectionHeader';
-
-import 'react-medium-image-zoom/dist/styles.css';
 
 import allTeams from '../assets/inItToWinnik/allTeams.mp4';
 import selectTeams from '../assets/inItToWinnik/selectTeams.mp4';
@@ -38,21 +33,11 @@ function InItToWinnik(props) {
         smallDeviceBreakpoint={smallDeviceBreakpoint}
       />
       <ContentWrapper>
-        <Zoom>
-          <Video autoPlay loop muted playsinline src={allTeams} />
-        </Zoom>
-        <Zoom>
-          <Video autoPlay loop muted playsinline src={selectTeams} />
-        </Zoom>
-        <Zoom>
-          <Video autoPlay loop muted playsinline src={rollingAverageCalendar} />
-        </Zoom>
-        <Zoom>
-          <Video autoPlay loop muted playsinline src={matchup} />
-        </Zoom>
-        <Zoom>
-          <Img src={ERdiagram} alt="Entity Relationship Diagram" />
-        </Zoom>
+        <Video autoPlay loop muted playsinline src={allTeams} />
+        <Video autoPlay loop muted playsinline src={selectTeams} />
+        <Video autoPlay loop muted playsinline src={rollingAverageCalendar} />
+        <Video autoPlay loop muted playsinline src={matchup} />
+        <Img src={ERdiagram} alt="Entity Relationship Diagram" />
       </ContentWrapper>
     </section>
   );
