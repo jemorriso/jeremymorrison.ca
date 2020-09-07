@@ -46,6 +46,7 @@ const Wrapper = styled.div`
 
     background-image: url('./img/lions-gate.jpg');
     background-size: cover;
+    background-position: center;
     filter: grayscale(100%) brightness(75%);
   }
 
