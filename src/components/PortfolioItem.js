@@ -130,7 +130,8 @@ class PortfolioItem extends React.Component {
       >
         <FlexWrapper>
           {isHovered ? (
-            <fragment>
+            // new react fragment syntax
+            <>
               <p>{summary}</p>
               <FlexFooter>
                 <PortfolioSocials socials={this.socials} fontSize="5rem" />
@@ -138,7 +139,7 @@ class PortfolioItem extends React.Component {
                   <Button type="button">Learn More</Button>
                 </Link>
               </FlexFooter>
-            </fragment>
+            </>
           ) : (
             <ProjectTitle>{title}</ProjectTitle>
           )}
