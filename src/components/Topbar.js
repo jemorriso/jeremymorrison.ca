@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: left;
   align-items: center;
-  z-index: 3;
+  z-index: 2;
 
   @media (min-width: ${(props) => props.sidebarBreakpoint}px) {
     display: none;
