@@ -89,7 +89,6 @@ function Sidebar(props) {
           </NavWrapper>
         </ContentWrapper>
       </CSSTransition>
-      {console.log(ContentWrapper)}
     </Wrapper>
   );
 }

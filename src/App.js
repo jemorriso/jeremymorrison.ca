@@ -19,7 +19,7 @@ import {
 import Sidebar from './components/Sidebar';
 import RouteContainer from './components/RouteContainer';
 import Topbar from './components/Topbar';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 
 import './css/reset.css';
 import './css/globals.css';
@@ -121,9 +121,10 @@ class App extends React.Component {
 
   updateDimensions = () => {
     const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
-    const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
+    // const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
 
-    this.setState({ windowWidth, windowHeight });
+    // this.setState({ windowWidth, windowHeight });
+    this.setState({ windowWidth });
   };
 
   updateContentHeight = () => {
@@ -158,7 +159,7 @@ class App extends React.Component {
   render() {
     const {
       windowWidth,
-      windowHeight,
+      // windowHeight,
       sidebarOpen,
       contentHeight,
       currentPath,

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types';
-import About from './About';
+// import About from './About';
 import Portfolio from './Portfolio';
 import Resume from './Resume';
 import Contact from './Contact';
