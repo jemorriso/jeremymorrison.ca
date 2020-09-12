@@ -51,16 +51,6 @@ const H1 = styled.h1`
   margin-bottom: 1.5rem;
 `;
 
-const projectDetails = `
-The back end is 
-This project was my introduction to using CSS preprocessors, I used SASS here, following a conventional folder structure including folders for abstracts, components, layouts, pages, and vendors. I found it much easier than using basic CSS. All the styling in this project was done without the use of any libraries such as Bootstrap. Transitions were accomplished by using CSS over Javascript wherever possible. Additionally, vanilla JS was used, with no frameworks.
-`;
-
-const imageDescriptions = [
-  'Landing page featuring animated CSS transitions. This project was my introduction to using CSS preprocessors, I used SASS here, following a conventional folder structure including folders for abstracts, components, layouts, pages, and vendors. I found it much easier than using basic CSS. All the styling in this project was done without the use of any libraries such as Bootstrap. Transitions were accomplished by using CSS over Javascript wherever possible. Additionally, vanilla JS was used, with no frameworks.',
-  'The gallery features a responsive CSS grid of image cards. ',
-];
-
 function DeafFireArt(props) {
   const { smallDeviceBreakpoint } = props;
   return (
