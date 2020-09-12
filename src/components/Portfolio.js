@@ -43,9 +43,29 @@ class Portfolio extends React.Component {
         lightBackground: true,
       },
     ];
+
+    this.state = {
+      gridItemWidth: 0,
+    };
   }
 
+  componentDidMount() {
+    this.updateGridWidth();
+    window.addEventListener('resize', this.updateGridWidth);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateGridWidth);
+  }
+
+  updateGridWidth = () => {
+    const gridItem = document.getElementsByClassName('grid-item')[0];
+    const gridItemWidth = gridItem.clientHeight;
+    this.setState({ gridItemWidth });
+  };
+
   renderItems() {
+    const { gridItemWidth } = this.state;
     return this.items.map((item) => (
       <PortfolioItem
         title={item.title}
@@ -56,6 +76,7 @@ class Portfolio extends React.Component {
         backgroundImage={item.backgroundImage}
         lightBackground={item.lightBackground}
         key={uuidv4()}
+        gridItemWidth={gridItemWidth}
       />
     ));
   }

@@ -49,11 +49,11 @@ const Wrapper = styled.div`
 // internal contents into flexbox
 const FlexWrapper = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 5rem;
-  line-height: 1.7;
-  font-size: 2rem;
+  flex-direction: column;
+  justify-content: space-between;
+  line-height: ${(props) => (props.gridItemWidth < 540 ? '1.3' : '1.5')};
+  font-size: ${(props) => (props.gridItemWidth < 540 ? '1.8rem' : '2rem')};
+  margin: ${(props) => (props.gridItemWidth < 540 ? '5% 3rem' : '10% 4rem')};
 `;
 
 const PortfolioSocials = styled(Socials)`
@@ -63,7 +63,8 @@ const PortfolioSocials = styled(Socials)`
 const ProjectTitle = styled.header`
   font-size: 5rem;
   font-family: var(--font-display-3);
-  margin-bottom: 20%;
+  margin: auto;
+  margin-top: 40%;
 `;
 
 const FlexFooter = styled.div`
@@ -97,6 +98,8 @@ class PortfolioItem extends React.Component {
     };
   }
 
+  setTextParameters = (gridItemWidth) => {};
+
   toggleHover = () => {
     // see React documentation for setState
     this.setState((oldState) => ({ isHovered: !oldState.isHovered }));
@@ -117,6 +120,7 @@ class PortfolioItem extends React.Component {
       backgroundImage,
       lightBackground,
       summary,
+      gridItemWidth,
     } = this.props;
     const { isHovered } = this.state;
 
@@ -127,23 +131,21 @@ class PortfolioItem extends React.Component {
         lightBackground={lightBackground}
         onMouseEnter={this.hoverOn}
         onMouseLeave={this.hoverOff}
+        className="grid-item"
       >
-        <FlexWrapper>
-          {isHovered ? (
-            // new react fragment syntax
-            <>
-              <p>{summary}</p>
-              <FlexFooter>
-                <PortfolioSocials socials={this.socials} fontSize="5rem" />
-                <Link to={`/portfolio/${partial}`}>
-                  <Button type="button">Learn More</Button>
-                </Link>
-              </FlexFooter>
-            </>
-          ) : (
-            <ProjectTitle>{title}</ProjectTitle>
-          )}
-        </FlexWrapper>
+        {isHovered ? (
+          <FlexWrapper gridItemWidth={gridItemWidth}>
+            <p>{summary}</p>
+            <FlexFooter>
+              <PortfolioSocials socials={this.socials} fontSize="5rem" />
+              <Link to={`/portfolio/${partial}`}>
+                <Button type="button">Learn More</Button>
+              </Link>
+            </FlexFooter>
+          </FlexWrapper>
+        ) : (
+          <ProjectTitle>{title}</ProjectTitle>
+        )}
       </Wrapper>
     );
   }
@@ -157,6 +159,7 @@ PortfolioItem.propTypes = {
   partial: PropTypes.string.isRequired,
   backgroundImage: PropTypes.string.isRequired,
   lightBackground: PropTypes.bool,
+  gridItemWidth: PropTypes.number.isRequired,
 };
 
 PortfolioItem.defaultProps = {
