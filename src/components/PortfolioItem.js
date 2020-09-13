@@ -98,8 +98,6 @@ class PortfolioItem extends React.Component {
     };
   }
 
-  setTextParameters = (gridItemWidth) => {};
-
   toggleHover = () => {
     // see React documentation for setState
     this.setState((oldState) => ({ isHovered: !oldState.isHovered }));
