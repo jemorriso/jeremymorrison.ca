@@ -103,7 +103,8 @@ function RouteContainer(props) {
       <Wrapper>
         <TransitionWrapper className="transition-group">
           <CSSTransition
-            key={location.key}
+            // HashHistory (React Router) does not use location object with key, so can use pathname instead, so CSSTransition will be able to tell when route changes
+            key={location.pathname}
             classNames="fade"
             timeout={{ enter: fadeinDuration, exit: fadeoutDuration }}
             // the component that is entering has the pathname of the new Route
