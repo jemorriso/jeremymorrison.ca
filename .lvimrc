@@ -1,4 +1,0 @@
-augroup filetype_jsx
-    autocmd!
-    autocmd FileType javascript set filetype=javascriptreact
-augroup END
