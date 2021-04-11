@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import { Nav } from '@components';
 
 const StyledContent = styled.div`
-  // display: flex;
   background: #a79aff;
   min-height: 100vh;
 `;
@@ -9,6 +9,7 @@ const StyledContent = styled.div`
 const Layout = ({ children }) => {
   return (
     <StyledContent>
+      <Nav />
       <div id="content">{children}</div>
     </StyledContent>
   );
