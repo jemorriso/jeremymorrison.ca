@@ -7,8 +7,12 @@ const nord = {
 };
 
 const fonts = {
-  fontSans: 'Tahoma, Helvetica, Arial, Roboto, sans-serif',
-  fontMono: 'Courier, Monaco, monospace',
+  // fontSans: 'Tahoma, Helvetica, Arial, Roboto, sans-serif',
+  // fontMono: 'Fira Code, monospace',
+  // fontMono: 'Oxygen Mono, monospace',
+  fontMono: 'Source Code Pro, monospace',
+  // fontSans: 'Source Sans Pro, sans-serif',
+  fontSans: 'Roboto, sans-serif',
 };
 
 const mixins = {

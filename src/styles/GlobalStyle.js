@@ -37,10 +37,9 @@ export const GlobalStyle = createGlobalStyle`
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
     line-height: 1.3;
-    /* Use theme for sans-serif font and mono font */
-    // font-family: Tahoma, Helvetica, Arial, Roboto, sans-serif;
-    font-family: ${({ theme }) => theme.fontSans};
-    // font-family: ${({ theme }) => theme.fontMono};
+    /* font-family: ${({ theme }) => theme.fontSans}; */
+    font-family: ${({ theme }) => theme.fontMono};
+    font-size: var(--font-size-md);
   }
 
   a {
