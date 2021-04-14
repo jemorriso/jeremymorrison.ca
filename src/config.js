@@ -9,7 +9,7 @@ export const socialMedia = [
     url: 'https://www.instagram.com/_jeremymorrison/',
   },
   {
-    name: 'Linkedin',
+    name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/jwill-morrison/',
   },
 ];

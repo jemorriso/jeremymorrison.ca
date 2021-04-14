@@ -36,6 +36,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
+    line-height: 1.3;
     /* Use theme for sans-serif font and mono font */
     // font-family: Tahoma, Helvetica, Arial, Roboto, sans-serif;
     font-family: ${({ theme }) => theme.fontSans};
@@ -47,6 +48,11 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     text-decoration-skip-ink: auto;
     color: inherit;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid;
   }
 `;
 
