@@ -4,6 +4,7 @@
     "paths": {
       "@components": ["src/components"],
       "@config": ["src/config"],
+      "@utils": ["src/lib/utils"],
       "@content/*": ["content/*"],
       "@content": ["content"],
       "@api": ["api/index"]

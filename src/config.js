@@ -1,7 +1,7 @@
 export const email = 'jwill.morrison@gmail.com';
 export const socialMedia = [
   {
-    name: 'GitHub',
+    name: 'Github',
     url: 'https://github.com/JeMorriso',
   },
   {
@@ -9,7 +9,7 @@ export const socialMedia = [
     url: 'https://www.instagram.com/_jeremymorrison/',
   },
   {
-    name: 'LinkedIn',
+    name: 'Linkedin',
     url: 'https://www.linkedin.com/in/jwill-morrison/',
   },
 ];
