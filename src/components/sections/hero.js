@@ -9,15 +9,22 @@ const imageDim = 500;
 const StyledHeroSection = styled.section`
   ${({ theme }) => theme.mixins.flexCenter};
   flex-direction: column;
-  align-items: flex-start;
   min-height: 100vh;
-  /* padding: 0; */
-  padding-top: 70px;
+  padding-top: 90px;
+
+  @media (max-width: 768px) {
+    padding: 30px 20px;
+  }
 
   .contactButtonContainer {
-    padding-top: 60px;
-    padding-left: 50px;
+    padding: 60px 100px;
     font-size: var(--font-size-xxl);
+    font-weight: 600;
+    align-self: flex-start;
+
+    @media (max-width: 768px) {
+      padding: 0;
+    }
   }
 `;
 
@@ -49,6 +56,11 @@ const StyledHeroContainer = styled.div`
 
   ul {
     margin-left: 30px;
+  }
+
+  @media (max-width: 768px) {
+    ${({ theme }) => theme.mixins.flexCenter};
+    flex-direction: column;
   }
 `;
 

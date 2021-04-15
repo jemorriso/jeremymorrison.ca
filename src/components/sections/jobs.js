@@ -7,6 +7,10 @@ const StyledFreelanceJobs = styled.section`
   grid-template-columns: repeat(auto-fit, 550px);
   /* grid-auto-rows: 550px; */
   justify-content: space-evenly;
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(auto-fit, 400px);
+  }
 `;
 
 const StyledFormalJobs = styled.section``;
