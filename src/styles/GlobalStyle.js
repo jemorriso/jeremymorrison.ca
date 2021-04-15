@@ -19,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
     --font-size-lg: 18px;
     --font-size-xl: 20px;
     --font-size-xxl: 22px;
-    --font-size-heading: 32px; 
+    --font-size-heading: 64px; 
   }
     
   html {
@@ -36,7 +36,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
-    line-height: 1.3;
+    line-height: 1.5;
     /* font-family: ${({ theme }) => theme.fontSans}; */
     font-family: ${({ theme }) => theme.fontMono};
     font-size: var(--font-size-md);
@@ -48,6 +48,17 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration-skip-ink: auto;
     color: inherit;
   }
+
+  button {
+    cursor: pointer;
+    color: ${({ theme }) => theme.text};
+    border: 1px solid;
+    background: none;
+    border-radius: 7px;
+    padding: 10px;
+    font-weight: inherit;
+  }
+
 
   hr {
     border: 0;

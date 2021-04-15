@@ -2,6 +2,7 @@ import { css } from 'styled-components';
 
 const nord = {
   body: '#1D2129',
+  shadow: '#171B21',
   text: '#D1DBE5',
   accent: '#88C0D0',
 };
