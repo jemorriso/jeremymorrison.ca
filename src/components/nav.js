@@ -6,12 +6,17 @@ import { Menu } from '@components';
 const StyledHeader = styled.header`
   position: fixed;
   top: 0px;
-  /* z-index: 11; */
+  z-index: 11;
   padding: 0px 50px;
   width: 100%;
   height: 70px;
-  background: purple;
-  ${({ theme }) => theme.mixins.flexBetween};
+  background: ${({ theme }) => theme.body};
+  font-weight: 600;
+  font-size: var(--font-size-xl);
+  box-shadow: 0 10px 30px -10px ${({ theme }) => theme.shadow};
+  /* text-transform: uppercase; */
+
+  ${({ theme }) => theme.mixins.flexBetween}
 
   @media (max-width: 1080px) {
     padding: 0 40px;
@@ -25,49 +30,51 @@ const StyledNav = styled.nav`
   ${({ theme }) => theme.mixins.flexBetween};
   /* width 100% required here because parent container is flexbox. */
   width: 100%;
-  background: orange;
-  /* z-index: 12; */
-  /* height: 100%; */
 
   @media (max-width: 768px) {
     display: none;
   }
 
-  ol {
+  ul {
     ${({ theme }) => theme.mixins.flexBetween};
     padding: 0;
     margin: 0;
     list-style: none;
 
     li {
-      margin: 0 5px;
+      margin: 0 10px;
       position: relative;
     }
   }
-`;
 
-const StyledLinks = styled.div`
-  /* display: flex;
-  align-items: center; */
-
-  @media (max-width: 768px) {
-    display: none;
+  .logo {
+    cursor: pointer;
   }
 `;
 
+const StyledLinks = styled.div``;
+
 const Nav = () => {
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
   return (
     <StyledHeader>
       <StyledNav>
-        <div>Jeremy Morrison</div>
+        <div className="logo" onClick={scrollToTop}>
+          Jeremy Morrison
+        </div>
         <StyledLinks>
-          <ol>
+          <ul>
             {navLinks.map(({ url, name }, i) => (
               <li key={i}>
                 <Link href={url}>{name}</Link>
               </li>
             ))}
-          </ol>
+          </ul>
         </StyledLinks>
       </StyledNav>
       <Menu />
