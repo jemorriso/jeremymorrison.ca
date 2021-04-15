@@ -3,14 +3,12 @@ import hydrate from 'next-mdx-remote/hydrate';
 
 import { Layout, Hero, About, Jobs, Projects, Contact } from '@components';
 import { getMDX, getFilesByGroup } from 'src/lib/mdx';
-import { zip } from 'src/lib/utils';
 
-const zipHydrate = (markdown) => {
-  const zipped = zip(
-    markdown.map((m) => m.frontMatter),
-    markdown.map((m) => hydrate(m.mdxSource))
-  );
-  return zipped;
+const arrayHydrate = (markdown) => {
+  for (const m of markdown) {
+    m.hydrated = hydrate(m.mdxSource);
+  }
+  return markdown;
 };
 
 const StyledMainContainer = styled.main`
@@ -18,23 +16,12 @@ const StyledMainContainer = styled.main`
   width: 100%;
   max-width: 1100px;
   min-height: 100vh;
-  padding: 0 200px;
-
-  @media (max-width: var(--desktopS)) {
-    padding: 0 100px;
-  }
-  @media (max-width: var(--tabletL)) {
-    padding: 0 50px;
-  }
-  @media (max-width: var(--mobileL)) {
-    padding: 0 25px;
-  }
 `;
 
 const StyledSectionsContainer = styled.div`
   & > * {
     /* padding-top: 100px; */
-    margin-bottom: 100px;
+    /* margin-bottom: 50px; */
   }
   & > *:last-child {
     margin-bottom: 0;
@@ -44,8 +31,8 @@ const StyledSectionsContainer = styled.div`
 export default function Home({ about, hero, jobs, projects }) {
   const aboutContent = hydrate(about.mdxSource);
   const heroContent = hydrate(hero.mdxSource);
-  const zippedJobs = zipHydrate(jobs);
-  const zippedProjects = zipHydrate(projects);
+  const hydratedJobs = arrayHydrate(jobs);
+  const hydratedProjects = arrayHydrate(projects);
 
   return (
     <Layout>
@@ -53,8 +40,8 @@ export default function Home({ about, hero, jobs, projects }) {
         <Hero content={heroContent} />
         <StyledSectionsContainer>
           <About content={aboutContent} />
-          {/* <Jobs jobs={zippedJobs} /> */}
-          <Projects projects={zippedProjects} />
+          <Jobs jobs={hydratedJobs} />
+          <Projects projects={hydratedProjects} />
           <Contact />
         </StyledSectionsContainer>
       </StyledMainContainer>

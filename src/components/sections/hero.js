@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import emoji from 'emoji-dictionary';
-// import HeroContent from '@content/hero.mdx';
 import Image from 'next/image';
 
 const imageDim = 500;
@@ -32,7 +31,6 @@ const StyledHeroContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   margin: auto;
-  /* width: 50%; */
 
   & > div {
     grid-row: 1/ 2;
