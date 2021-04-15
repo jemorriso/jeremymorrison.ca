@@ -47,12 +47,18 @@ const StyledNav = styled.nav`
     }
   }
 
+  button {
+    margin-left: 15px;
+  }
+
   .logo {
     cursor: pointer;
   }
 `;
 
-const StyledLinks = styled.div``;
+const StyledLinks = styled.div`
+  ${({ theme }) => theme.mixins.flexBetween};
+`;
 
 const Nav = () => {
   function scrollToTop() {
@@ -75,6 +81,11 @@ const Nav = () => {
               </li>
             ))}
           </ul>
+          <button>
+            <a href="/resume.pdf" target="_blank">
+              Resume
+            </a>
+          </button>
         </StyledLinks>
       </StyledNav>
       <Menu />
