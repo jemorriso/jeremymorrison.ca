@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import { Nav } from '@components';
 
 const StyledContent = styled.div`
-  background: #a79aff;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
 `;
 

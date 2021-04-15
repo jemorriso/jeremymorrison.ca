@@ -14,15 +14,11 @@ const StyledHeader = styled.header`
   font-weight: 600;
   font-size: var(--font-size-xl);
   box-shadow: 0 10px 30px -10px ${({ theme }) => theme.shadow};
-  /* text-transform: uppercase; */
 
   ${({ theme }) => theme.mixins.flexBetween}
 
-  @media (max-width: 1080px) {
-    padding: 0 40px;
-  }
   @media (max-width: 768px) {
-    padding: 0 25px;
+    display: none;
   }
 `;
 
@@ -30,10 +26,6 @@ const StyledNav = styled.nav`
   ${({ theme }) => theme.mixins.flexBetween};
   /* width 100% required here because parent container is flexbox. */
   width: 100%;
-
-  @media (max-width: 768px) {
-    display: none;
-  }
 
   ul {
     ${({ theme }) => theme.mixins.flexBetween};
