@@ -3,6 +3,10 @@
 ### Inspiration
 
 [brittanychiang.com](https://brittanychiang.com/)
+- CSS patterns and project file structure
+
+[leerob.io](https://leerob.io)
+- MDX importing
 
 ### MPV
 
@@ -13,15 +17,15 @@
 - [] Update resume
 - [] implement scrolling functionality
 - [] pick 4 colors
-- [] pick 1 terminal style sans-serif font, and 1 sans-serif font
-- [] scroll to headers
+- [x] pick 1 terminal style sans-serif font, and 1 sans-serif font
+- [x] scroll to headers
 - [] navbar - slide on mobile
-- [] landing page with image
-- [] about
-- [] work experience / freelance projects
-- [] personal projects
-- [] link to resume
-- [] contact
+- [x] landing page with image
+- [x] about
+- [x] work experience / freelance projects
+- [x] personal projects
+- [x] link to resume
+- [x] contact
 
 #### Things to keep in mind
 
